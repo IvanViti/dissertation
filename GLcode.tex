@@ -1,0 +1,34 @@
+\chapter{GLcode}          % chapter 1
+\label{codechap}
+
+\section{GL}
+GL is a GPU based Ginzburg-Landau field simulator. It was designed to solve mesoscale problems which arised in superconductor design. To model the system accurately, we need to take into account the Ginzburg Landau function at a microscopic resolution. At the same time, the system size has to be large enough to encompass many vortex interactions and complicated non-superconducting architectures. Physical pinning defects are simulated as modulations of the superconductor's critical temperature. The simulation works by first integrating the GL equations forward in time, then solving the Poisson equiation to find the electric and magnetic fields. There are also noise correlation terms to simulate thermal effects~\cite{Sadovskyy14}.
+
+\section{Results}
+Being such a general code, there were many possible areas of study regarding this code. We found promissing results in two general areas, grids of inclusions and hyper-conducting funnels. We characterize these situations by looking at their responses to changes in voltage, magnetic field, and geometry.
+
+\subsection{Grids}
+Inclusions in the superconductive substrate can be used to contain vortices (up to a certain current). If these vortices do not move, then they are not draining energy from the system. The first thing we needed to show was that vortices preferred to be trapped in inclusions which were around the same size as they were. If the inclusion size is increased, we see that at some point we start to trap 2 vortices per inclusion. Trapping a vortex requires that the force due to external current and other vortices be less than the superconducting destruction force. The superconducting destruction force is due to the energy of a superconducting system below Tc Being lower than a non-superconducting system below Tc. The second effect we were looking for was vortex matching resistance. Vortices have quantized magnetic flux. This means that for a certain applied field, we can predict the number of vortices. If some vortices are moving and some are pinned, the moving ones will push on the pinned ones as they pass by. If instead we have as many vortices as we have inclusions, after a certain relaxation period, vortices will all be pinned and the system will be more stable. As shown in Fig.~\ref{HDF} we were able to show both of these effects. In the X direction, we see that the optimal radius for an inclusion is 2. In the Y direction, we see a sharp drop in critical current at m=1. This is because as soon as we are above the 1-to-1 ratio, we start to have rogue vortices which will move.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{HDFinal.png}
+\caption{ On the X-axis is the radius of each inclusion in the system. On the Y axis m is the ratio of number of vortices per inclusion. The colorbar stands for critical current. In other words, the redder a zone is, the better it holds on to vortices, the lower superconductive resistance it puts out.}
+\label{HDF}
+\end{center}
+\end{figure}
+ 
+
+\subsection{Funnels}
+The same way that energy is gained when a vortex goes into a lower superconducting state, energy is lost if it tries to go into a higher superconducting state. Also, since more current can travel through the hyperconducting system, we get the opposite of the venturi effect. This also helps to keep vortices out. Using this logic, we created hyperconducting zones that can be used to guide vortices. Indeed, increasing the aperture size increases the ease of which the vortices can travel ~\ref{AvR}. 
+
+
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{AvR.png}
+\caption{ On the X axis is the size of the aperture, Y axis is the superconductive resistance. }
+\label{AvR}
+\end{center}
+\end{figure}
+

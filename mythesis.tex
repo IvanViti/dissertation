@@ -1,0 +1,99 @@
+\documentclass[12pt]{niuthesis}
+% \documentclass[12pt,singlespacing]{niuthesis}
+
+% some packages are loaded here
+\usepackage{latexsym}		% to get LASY symbols
+\usepackage{graphicx}		% to insert PostScript figures
+\usepackage{rotating}           % defines sidways table and figure env.
+% \usepackage{hyperref}		% to insert hyperrefs
+\usepackage{graphicx}
+\usepackage{varwidth}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some LaTeX macros
+
+\newcommand{\twochoices}[2]{\left\{ \begin{array}{lcc}
+        \displaystyle #1 \\ \vspace{-10pt} \\
+        \displaystyle #2 \end{array} \right. } %}
+
+\newcommand{\twovec}[2]{\left(\begin{array}{c} #1 \\ #2 \end{array}\right)}
+
+\newcommand{\twomatrix}[4]{\left(\begin{array}{cc} #1 & #2 \\ 
+     #3 & #4 \end{array}\right)}
+
+% Uncomment the following line for a List of Symbols
+% \newcommand{\listofXXX}{\input{symbols}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Choose the chapter(s) / files you want to work with
+
+%%% use this to compile all chapters
+\def\files{Introduction,Theory,TheoryVortex,Dias,GLcode,refs}
+
+%%% use this to work with only one chapter
+% \def\files{ch2}
+
+\includeonly{\files}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\title{GPU simulations in Multiphasic Nanosolids and Superconducting Nanostructures}
+
+\author{Ivan Viti}
+
+\major{Physics}
+\degree{Dissertation}{Ph.D.}{Doctor of Philosophy}
+\degreedate{May}{2016}
+\department{Department of Physics}
+\director{Andreas Glatz}
+
+\begin{abstract}
+	With the ever-increasing availability of computing power, namely from Graphics Processing Units (GPUs), comes the ability to simulate complicated systems. Complex functions such as the Ginzburg-Landau function can not be studied analytically for mesoscopic phenomena. Similarly, a thorough understanding of variable range hopping in electrons requires a Monte-Carlo algorithm. With this in mind we computationally study two cases of condensed matter physics, thermoelectrics and superconductor-bound vortices.
+
+	The next generation of thermal gradient to electric current conversion will be based on thermoelectric materials. The number that denotes usefulness of a thermoelectric device is the dimensionless figure of merit
+\begin{eqnarray}
+ZT = \frac{\sigma S^2 T}{k},
+\label{ZT}
+\end{eqnarray}
+where $\sigma$ is the conductivity, $S^2$ is the Seebeck coefficient, $T$ is the temperature, and $k$ is the thermal conductivity ~\cite{chen}. The Seebeck coefficient is a relationship between the electric gradient and the thermal gradient:
+\begin{eqnarray}
+S = \frac{V}{\Delta T},
+\label{Seebeck}
+\end{eqnarray}
+
+ Novel nanosolid materials can push the boundaries of their thermoelectric capabilitity. These materials are artificially created by joining 10nm  granules together at comparable distances. By tuning the properties of these granules, the figure of merit can be increased. Precise tuning would take many iterations of experimentation. Our approach was to write a parallel Monte-Carlo simulator. With this, we model the electrons' variable range hopping properties. Because electrons conduct most of the heat, and all of the electricity, We can then know the system's thermoelectric properties. Thus by creating a thermal gradient and comparing it to an electric gradient, we find the system's figure of merit. 
+
+
+	Vortex-vortex interactions and vortex-inclusion interactions are not very well understood analytically. The mathematics becomes near-impossible when taken to mesoscopic scales. Applied temperature, magnetic field, or currents only serve to complicate the system. Yet these are all factors that need to be well understood before serious applications can take place. Here we report two basic systems, The effect of vortex-inclusion matching on the effective resistance, and a novel funnel system for slowing the vortices. We describe how matching the number of inclusions to the number of vortices can help reduce the amount of vortex-induced resistance. We also describe how an aperture-type system can help to slow down vortices as they are travelling through the system draining energy. 
+
+
+
+\end{abstract}
+
+\begin{acknowledgments}
+  I would like to thank Andreas Glatz for his constant guidance. I would also like to thank the computer science department for allowing us to use their Gaea cluster for our simulations, as well as the Physics department for housing our Thoon cluster.
+  
+  This work is supported by a grant from the DoE.
+\end{acknowledgments}
+
+% comment this to suppress prologue
+\MakeThesisPrologue % includes table of contents
+% \tableofcontents
+
+\include{Introduction}		% file with Chapter 1 contents
+\include{Theory}		% file with references
+\include{TheoryVortex}
+\include{Dias}
+\include{GLcode}
+\include{refs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Appendices
+
+\appendix
+%\include{app1}			% file with Appendix A contents
+%\include{app2}			% file with Appendix B contents
+
+\end{document}
