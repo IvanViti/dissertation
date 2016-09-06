@@ -50,6 +50,19 @@ This pseudocode is what is referred to as the "Parallel Reduction". It is device
 \end{algorithmic}
 \end{varwidth}%
 
+\subsection{Conditions}
+There are certain conditions which an algorithm must comply with in order to be considered a Markov Chain Monte Carlo. The first is that the probability function should not vary over time. That is clearly satisfied as we stay in the form:
+
+\begin{eqnarray}
+P = e^{-2R - \Delta E/T},
+\label{simpleProb}
+\end{eqnarray}
+where the probability of jumping is a function of the jump distance $r$, change in energy of the system $E$, and temperature of the jump site $T$. The second is that the probability to jump to the next state is only a function of the current state. In other words, there is no "momentum" built up from previous states. Third is that the sum of the probabilities must equal 1: 
+\begin{eqnarray}
+\Sigma P(\mu \rightarrow \nu) = 1 ,
+\label{normalized}
+\end{eqnarray}
+Where $\mu$ is the current state and this is being summed over all possible transitions to other states $\nu$. Fourth is the requirement of ergodicity. That is, all states should be reachable from all other states given enough time. This requirement is satisified as long as there is at least one non-zero probability to jump out of every other state. Finally, our last condition is of detailed balance. That is upon relaxation we generate the Boltzmann probability distribution rather than any other.
 
 \subsection{Thoon Cluster}
 This research was performed on a variety of machines, mostly consisting of Nvidia graphics cards. I had access to one stand-alone pc with a GTX 570, 8 pcs in a computer lab with GTX 570s, and 60 nodes with 2 GPU's each on the Gaea cluster in the computer science building. The Gaea cluster was powerful, but frequently busy such that only a third to an eighth was typically available. Meanwhile there was a computer lab with 8 linux based pcs, each with an Nvidia gtx 570. Unfortunately, they were barely on the same network. To remedy this, I wrote a script which divided up the parameter scans in the form of bash scripts and sent these to the respective computers. These then started the simulations and a timer in the form of a cron argument. The cron would then check every five minutes to see if the simulation was done. If so, then the data was sent back to the host computer. This had a few weaknesses, namely the clunkyness and the fact that one had to wait for the cron to trigger. This meant that short scans were impractical. Eventually this was all replaced with the free-lisence version of the Torque job scheduler. With the computers united into a small "cluster", running batches became more streamlined. This ad-hoc cluster is called THOON (Torque Hub On One Node). 
@@ -106,6 +119,9 @@ where $\delta t$ is the change in system time, and $P_{\mu \rightarrow \nu}$ is 
 
 \subsection{The Lattice}
 While the easiest system to model would have been a square lattice, This would have left out a large amount of interesting phenomena. To incorporate this, we started out with a square lattice and then gave each site a certain $\delta x$ or $\delta y$ variance. There are a few ways to then use this kind of implementation. The first one would have been to then calculate the distances from one site to another on the fly, possibly approximating for further away site. The way that we picked to do this was to hold all of the distances from one site to another in a 4D matrix (a matrix of distances for every site on the grid). This has the advantage that no calculations have to be run at each GPU core. Since the calculation of distance involves a square root, this would have been heavy on the workload. The disadvantage is that for a $100 \times 100 $ system, we require $100 \times 100 \times 4$ bytes of data (or 400MB using the float type). Fortunately, NVIDIA GTX 570 cards have at least 1200 megabytes of memory, so this did not end up being an issue.
+
+\subsection{Dielectric Constant}
+We also varied the dielectric constant of the material. Typical dielectric constant was held at around 4. For gold nanoparticles, this number can increase. While gold is a conductor and conductors tend to have a dielectric constant of infinity, these gold nano-particles are in very special situation. First, they are small, so there are skin-level effects which mean that while the interior may want to reach a high dielectric constant, the skin still has a finite constant. Second, The dielectric constant of gold varies with frequency. It may be infinite for a static field attempting to permeate through a block of gold, but different frequencies will feel different impedances.  
 
 \subsection{Distance-substrate correlation}
 In the physical world, this system is not a grid, but rather a dense packing of granules. This can be imagined as a 2D packing of variously sized orbs. One can then see that the distance between orb centers will depend on the size of the neighboring orbs. For ease of algorithms, we took this correlation in the opposite direction. The size of an orb is defined by half the distance to the nearest orb. The substrate potential is also affected by this. Granule size randomness did not have much effect on the system directly. This is because it only affects how much energy it takes to pack two electrons on the same granule. If the granule is bigger, the electrons do not have to sit so close together and the charging energy is lowered. But the issue is that even with a larger granule, the temperature required to pack two electrons onto the same granule is still in the thousands of Kelvin and outside of the scope of this study. The correlation's effect on substrate randomness however did come into effect, as small changes in the substrate potential can have large effects on the density of states.
