@@ -2,18 +2,24 @@
 \section{Input file}
 Dias has a simple input file which allows the user to change parameters on the go. 
 rejection- Good inputs are any positive number. This is to change the monte carlo system from a rejection free on (0) to a rejection one (1). 
-timeName- Good inputs are character strings, typically ending with the ".txt" suffix. This is where the time of each jump can be pulled from 
-boxName
-lineName
-whichBox
-grabJ
-relax
-eV
-L
-tSteps
-XYvar
-muVar
-Temp
+timeName- Good inputs are character strings, typically ending with the ".txt" suffix. This is the name of the file where the time of each jump can be pulled from. 
+boxName-Good inputs are character strings, typically ending with the ".txt" suffix. This is the name of the file where 2-D arrays will be printed. The array that is printed depends on the "whichBox" input.
+lineName-Good inputs are character strings, typically ending with the ".txt" suffix. This is the name of the file where 1-D arrays are printed.
+whichBox-Good inputs are the numbers 1-5 where:
+	1 = particles
+	2 = probabilities
+	3 = potentials
+	4 = Ematrix
+	5 = nothing
+
+grabJ-good inputs are 0 or 1. If 0, then each jump distance is recorded in lineName. If 1, then only the x-component (current) is outputed in lineName.
+relax- good inputs are 0 or 1. 1 will relax the system using Dr.Glatz's pre-relaxation algorithm. 
+eV- good inputs are -0.001 to 0.001. This is the voltage potential placed on the system. 
+L- good inputs are around 2e-9. This is the inter-grain distance in meters. 
+tSteps-good inputs are positive integers. This is the number of timesteps (and therefore jumps) of the system.
+XYvar-good inputs are 0 to 0.5. This is the randomness in the spacing, where 0 is a perfect grid. xyVar = .5 means that sites can be dislocated up to half of the distance to the next cell. 
+muVar-good inputs are 0 to 0.01. This is the random substrate potential at each site. 
+Temp- good inputs are 0 to 500. This is the temperature of the system in Kelvin. 
 
 
 

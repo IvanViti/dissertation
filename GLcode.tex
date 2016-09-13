@@ -4,18 +4,6 @@
 \section{GL}
 GL is a GPU based Ginzburg-Landau field simulator. It was designed to solve mesoscale problems which arised in superconductor design. To model the system accurately, we need to take into account the Ginzburg Landau function at a microscopic resolution. At the same time, the system size has to be large enough to encompass many vortex interactions and complicated non-superconducting architectures. Physical pinning defects are simulated as modulations of the superconductor's critical temperature. The simulation works by first integrating the GL equations forward in time, then solving the Poisson equiation to find the electric and magnetic fields. There are also noise correlation terms to simulate thermal effects~\cite{Sadovskyy14}.
 
-\section{Breakdown}
-One of the first things that we did with the code was to push it to its limits. We did this by exploring its behavior near the current breakdown region. There we saw many interesting phenomena which were outlined in figure ~\ref{breakdown}.
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=.50]{breakdownBreakdown.png}
-\caption{This is a plot of the voltage (resistance) of the system as the current is slowly ramped up. At low currents, we just see the main vortex stuck to the Tc inclusion. As the current is increased, we eventually reach the depinning current and the vortices begin moving. This can be seen in the phase diagram as the phase has begun to wind up, indicating vortex movement. Sometime phenomena that can be observed, is that anti-vortex/vortex pairs are created in the inclusion and propagate in opposite directions. In region 3, the vortices clearly wind up the phase diagram and the resistance increases dramatically. Eventually in region 4, the system destabilizes and we begin to get vortex/anti-vortex pairs from the substrate. Finally, in region 5, we get full breakdown due to current and the system is no longer superconducting.}
-\label{breakdown}
-\end{center}
-\end{figure}
-
-
 \section{Results}
 Being such a general code, there were many possible areas of study regarding this code. We found promissing results in two general areas, grids of inclusions and hyper-conducting funnels. We characterize these situations by looking at their responses to changes in voltage, magnetic field, and geometry. There is an important choice that we made when determining the critical current as there is a inherent hysteresis in the system. We had two options when ramping the current. It could either have been ramped up, Starting with no movement and pushing the current until the vortices became dislodged. The second option was to ramp the current down. That is start with moving vortices and slowly decrease the current until the vortices become lodged. In the end we went for the second option due to the dynamics of the system. Vortices tend to start out placed not according to the lowest energy state, but instead randomly according to whatever starting seed was selected. By forcing the vortices to move around first, we get a more natural state before the depinning current is found. In figure ~\ref{hysteresis} we quantitatively demonstrate the difference.
 
@@ -109,6 +97,15 @@ The same way that energy is gained when a vortex goes into a lower superconducti
 \end{center}
 \end{figure}
 
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{oneSidedAperture.png}
+\caption{ 50 values of aperture were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current . As the aperture size is increased, the vortices are less restrained. }
+\label{normalYscan}
+\end{center}
+\end{figure}
+
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=.50]{oneSidedY.png}
@@ -120,7 +117,7 @@ The same way that energy is gained when a vortex goes into a lower superconducti
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=.50]{oneside-angle-Scan.png}
-\caption{ 50 values of aperture were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current . As the slope is increased, the jamming effect becomes more pronounced. }
+\caption{ 50 values of aperture were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current . As the one slope is increased, the jamming effect becomes more pronounced. }
 \label{normalYscan}
 \end{center}
 \end{figure}
@@ -133,11 +130,20 @@ The same way that energy is gained when a vortex goes into a lower superconducti
 \end{center}
 \end{figure}
 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{kinkScan.png}
+\caption{ 50 values of the turn length were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current .  }
+\label{normalYscan}
+\end{center}
+\end{figure}
+
+
 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=.50]{AvR.png}
-\caption{ On the X axis is the size of the aperture, Y axis is the superconductive resistance. }
+\caption{ We can also study how the aperture size hampers vortex movement once they have already been depinned. This is a resistance plot of the constant y-position funnel. On the X axis is the size of the aperture, Y axis is the superconductive resistance. }
 \label{AvR}
 \end{center}
 \end{figure}

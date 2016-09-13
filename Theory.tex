@@ -4,6 +4,36 @@
 \section{History}
 In 1937, Nevill Mott and Rudolf Peierls explained why some materials which should have been conductors, acted as insulators. This was due to electron-electron interactions, which is not taken into account in band theory ~\cite{mott72}. From there, Miller and Abrahams proposed a network resistor model which Efros and Schklovskii built on ~\cite{efros75}. Because of the dynamic complexity of even a small system (a 10 by 10 system can have $2^{100}$ configurations) simulations are a large part of modern electron hopping studies ~\cite{kirkengen09}. The theory has gotten more consise over time. For the sake of simulation, much of it can be compressed into equation~\ref{probability}.
 
+Transport through a quantum dot which is weakly coupled to two conducting leads is dominated by the electron-electron interaction ~\cite{Glazman05}. When the thermal energy is not enough to overcome the charging energy of the dot, coulomb blockade takes over and resistance is increased. At low enough temperatures, the Kondo effect takes over. That is when the magnetic field of the electrons starts to matter energy-wise. At that point, electrons start to prefer states where they are anti-parallel.
+
+Kinetic monte carlo methods are useful when simulating condensed matter systems which include time evolution. There are two types, rejection and rejection-free, the difference being whether or not an event has a chance of failing all-together. If a kinetic Monte Carlo method is also subject to detailed balance, then it simulates a system at thermodynamic equilibrium~\cite{Young66}. A kinetic monte carlo method is useful for modeling variable range hopping. The temperature dependence of conductivity can be tested using a kinetic Monte Carlo algorithm. If one assumes that single-particle excitations are responsible for variable range hopping, then one ends up with the Efros-Shklovskii law:
+\begin{eqnarray}
+\sigma_c \approx (\gamma e^2 / T) \exp(-(T_0/T)^{1/2}),
+\label{ESlaw }
+\end{eqnarray}
+Where $\sigma_c$ is the conductivity, $\gamma$ is the frequency, $T$ is the temperature, and $T_M = \beta_M (g_0 a^2)^{-1}$ where $a$ is the localization length of the electron, $g_0$ is the density of states at the Fermi level, and $\beta_M$ is a numerical coefficient.~\cite{Tsigankov02} show that single electron jumps are sufficient to describe the system. This is important since otherwise we would have to simulate multi-electron jumps which would scale the difficulty of simulation by an order of magnitude. The problem of studying this situation increases with decreasing temperature as electrons are able to jump farther. 
+
+The Coulomb glass system was found to be robust enough to relax within simulateable times. ~\cite{Kirkengen09} Found that the relaxation time is slightly slower than exponential. Energy correlations at equilibrium however were found to be exponential:
+\begin{eqnarray}
+C(\tau) = e^{-(\tau / \tau_0)^\gamma},
+\label{correlations}
+\end{eqnarray}
+where $\gamma$ is proportional to temperature at low temperatures, and $\tau , \tau_0$ are time dependent. Only at low temperatures below $T_{min} \approx 0.02$ does the system take too long to equilibrate. The behavior is similar to that of a random walk on a fractal configuration space. 
+
+The Coulomb glass is applicable to nanoscale nanular lattices, and much research has been conducted on them. Abeles et. al. did some of the original work on nano-granules. They achieved this by co-sputtering metals and insulators. They attributed conduction due to electron percolation and tunneling. They also define a charging energy required to tunnel as $E_j = e^2/2C$ where $C$ is an effective junction capacity. Another interesting phenomenon that they observed was that of the electric field breakdown. That is, if the voltage drop between particles became comparable to the height of the tunneling barrier, then electrons could go straight into the conduction band of the insulator. 
+
+In ~\cite{Vinokur08} The 2D lattice of Coulomb glasses with site disorder was studied. When the effect of site disorder was on the same scale as the Coulomb energy, the distribution of local minima becomes exponential. At low disorder, the density of states becomes crystal-like. They also found that in order to fully relax a system, multiple-electron jumps must be taken into account. 
+
+Eventually, arrays of nano-scale metallic particles were able to be embeded in insulating matrices. These metallic particles act like artificial atoms with programable electronic properties. These can be formed such that they are insulators, conductors, semiconductors, or even superconductors. ~\cite{Beloborodov07}  Were able to show that there was logarithmic temperature dependence of the conductivity. This system also appears to show negative magnetoresistance under certain parameters. 
+
+By tuning the ability of electrons to travel, one can also start to change the Seebeck coefficient of the material. ~\cite{Glatz09} derive the thermopower and thermoelectric coefficient of nanogranular materials. They find the thermoelectric coefficient to be:
+\begin{eqnarray}
+\eta = \eta^{(0)} (1 - \frac{1} {4 g_T d} ln \frac{g_T E_c} {T} ),
+\label{thermoelectric}
+\end{eqnarray}
+where $\eta^{(0)} = -(\pi^2 / 3) e g_T a^{2-d} (T/ \epsilon_F)$, $a$ is the size of a grain, $d$ is the dimensionality of the system, $\epsilon_F$ is the Fermi energy, and $E_c = e^2 /a$ is the charging energy. 
+
+
 \section{Jump Probability}
 
 In order to calculate were the electron will jump, we must first find the probability of each jump site. Our main equation involved is as follows:
@@ -12,7 +42,7 @@ P_{ij} = \exp (-2\alpha R_{ij} -  E_{ij}/kT)
 \label{probability}
 \end{eqnarray}
 
-where $k$ is the Boltzmann constant, $R_{ij}$ is the distance between cells, $E_{ij}$ is the energy change of the system if a particle were to move from i to j, and T is the temperature of the system. $E_{ij}$ has various inputs which vary in energy scale.
+where $k$ is the Boltzmann constant, $R_{ij}$ is the distance between cells, $E_{ij}$ is the energy change of the system if a particle were to move from i to j, and T is the temperature of the system.$\alpha = \sqrt{2mH/\hbar}$ where $m$ is the effective mass at the bottom of the conduction band and $H$ is the mean energy of the conduction band. $\alpha$ is set up to be around the same scale as the inter-grain distance. $E_{ij}$ has various inputs which vary in energy scale~\cite{Mott68}.
 \begin{eqnarray}
 E_{ij} =  \triangle U_{ij} e^2/a\kappa_1  + e f_i \triangle V_{ij} + f_i  \triangle \mu_{ij} + f_i (eV) \triangle x_{ij} 
 \label{deltaE}
@@ -68,6 +98,15 @@ There are many methods of characterizing the energy of an electron. One of these
 \label{moundDoS}
 \end{center}
 \end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{critDoS.png}
+\caption{The density of states for a system where there is a critical amount of randomization and the two peaks are just beginning to touch.}
+\label{critDoS}
+\end{center}
+\end{figure}
+
 
 \begin{figure}[htbp]
 \begin{center}
