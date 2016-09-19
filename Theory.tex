@@ -34,6 +34,39 @@ By tuning the ability of electrons to travel, one can also start to change the S
 where $\eta^{(0)} = -(\pi^2 / 3) e g_T a^{2-d} (T/ \epsilon_F)$, $a$ is the size of a grain, $d$ is the dimensionality of the system, $\epsilon_F$ is the Fermi energy, and $E_c = e^2 /a$ is the charging energy. 
 
 
+\section{Monte Carlo methods}
+Monte Carlo methods are a randomized way to use the law of large numbers to find answers to mathematical and physical problems. For example, In oil and space exploration, Monte Carlo methods are a better predictor of cost overruns than human intuition~\cite{Hubbard09}. While there is no consensus on the exact definition of a Monte Carlo method, One can get a feel for it by looking at simple examples. Some good examples are the estimation of $\pi$ and the Metropolis method. 
+
+\subsection{Estimating $\pi$}
+Estimating $\pi$ has been a challenge for mathematicians since ancient Egyptian times. One possible method is by trying a Monte Carlo strategy. For simplification, one usually just takes a fourth of a circle inscribed in a square (see fig.~\ref{piSquare}). One then picks random numbers between 0 and 1 for x and y. Success is then defined as ~\cite{Kalos08}:
+\begin{eqnarray}
+\sqrt{x^2 + y^2} < 1 .
+\label{piSuccess}
+\end{eqnarray}
+In a way, all we are doing is integration. If one counts the number of successes and divides by the number of total trials, it will equal to the ratio of the area of the quarter circle and the square of length 1, which can then be solved for $\pi$. Integration of this sort can be used to approximate the area under any integrable curve, and in the case of the "pathological equation" some non-integrable ones as well~\cite{Newmann99}. 
+
+\subsection{Metropolis method}
+The Metropolis algorithm is a way to draw samples from a probability distribution iteratively. Because each distribution is only affected by the previous distribution, this can be considered a Markov chain. A Markov chain is simply a sequence of random variables which a system moves through with serial dependence. In its simplest sense, we have
+\begin{eqnarray}
+\overrightarrow X_{t+1} = \overrightarrow{ \overrightarrow Q} \overrightarrow X_{t} ,
+\label{Markov}
+\end{eqnarray}
+where $\overrightarrow X_t$ is the state of the system at step $t$, and $\overrightarrow{\overrightarrow Q}$ is the probability matrix. Under certain circumstances, the probability matrix can be applied multiple times, eventually causing the state to approximate an equilibrium~\cite{Everitt02}. The Metropolis method can be used for many systems, but we will focus on the Ising problem as it is similar to our problem.
+
+\subsection{Ising problem}
+The Ising method is a way to solve the problem of dipole moments on a large array of atoms. While the Hamiltonian can be fairly simple ~\ref{Ising}, its properties such as its specific heat or hysteresis can be relatively complex.   
+The Hamiltonian is 
+\begin{eqnarray}
+H(\sigma) = - \Sigma J_{ij} \sigma_i \sigma_j - \mu \Sigma h_j \sigma_j , 
+\label{Ising}
+\end{eqnarray}
+where $\sigma_i$ is the spin, $J_{ij}$ is the interaction strength between neighbors, $\mu$ is the magnetic moment, and $h_j$ is an external magnetic field. Then the configuration probability is:
+\begin{eqnarray}
+P(\sigma) = \frac {e^{-\beta H(\sigma) }} {Z_\beta },
+\label{configurationProbability}
+\end{eqnarray}
+where $\beta = (k_B T)^{-1}$, and the renormalization constant $Z_\beta = \Sigma e^{-\beta H(\sigma)}$. From here we have a 3 step process to simulate the system. First, we must choose an arbitrary configuration to be our starting point. Next, we pick an adjacent configuration in configuration space (i.e. a configuration that we can get to by just changing one value). If going there is energy favorable, then the change is made. Otherwise, the change is made accoring to the probability ~\ref{configurationProbability}. As the system is evolved, variables such as magnetic field and temperature can be changed, which can lead to properties such as specific heat and hysteresis. 
+
 \section{Jump Probability}
 
 In order to calculate were the electron will jump, we must first find the probability of each jump site. Our main equation involved is as follows:

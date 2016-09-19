@@ -1,10 +1,15 @@
-\chapter{Vortex Pinning}
+\chapter{Geometric Vortex Pinning}
 \label{theoryvortex}
 
-\section{History}
-	Superconductivity was first discovered by Heike Kamerlingh Onnes in 1911. He found that by cooling mercury to 4.2 degrees Kelvin, the resistivity of the metal went to 0. This phenomenon has important implications with regards to magnetic fields. One can imagine that as a magnet is placed near a superconductor, Faraday's law will cause a countercurrent to develop inside the superconductor. Due to the lack of resistance, this supercurrent creates a magnetic field that perfectly balances out the input magnetic field, cancelling it out. If the magnetic field is increased, eventually the system reaches a critical current under which the magnetic field can no longer be countered and the superconduction is suppressed. This type of superconductor is referred to as a type I superconductor. There is a second type of superconductor which gets around this problem by allowing some magnetic field to enter in isolated flux lines.
+\section{Langevin system for vortices}
+The Langevin system for vortices is a relatively simple place to start. It keeps only vortex degrees of freedom and foregoes all other perturbations of the complex order parameter. As long as the pinning centers are not too dense and vortices stay further appart than their coherence length, this provides a fairly accurate system. Looking at the equation of motion for this overdamped system, one can get an idea of the forces involved:
+\begin{eqnarray}
+\eta \frac {\partial u}{\partial t} = \epsilon_1 \frac {\partial^2 u} {\partial z^2 } + \Sigma_j F_{vp} (u - R) \delta(z - z_j) + j + F_T(z,t), 
+\label{Langevin}
+\end{eqnarray}
+where $\eta$ is the viscosity coefficient, $\epsilon$ is the line tension, $f$ is the current's driving force, $(R,Z)$ are the random pinning coordinates, $F_{vp}$ is the pinning force, and $F_T$ is the thermal randomizing force. From this equation, one can see that the current driving force is trying to push overdamped vortices through a viscous fluid. Every once in a while, they get stuck in pinning centers and may or may not get out again depending on the current force and the thermal noise. Finally if the system is in 3 dimensions, then the vortices will want to stay in as straight of a line as possible~\cite{Kwok16}. As simple and intuitive as the Langevin system may be, it falls short on explaining other important phenomena such as vortex creation, cutting, and reconnection. Also, it cannot explain phenomena related to $T_C$ variation. For these we need a much more powerful system called the time dependent Ginzburg Landau model. 
 
-\section{Ginzburg-Landau}
+\section{The Ginzburg-Landau Model for Superconductivity}
 Superconductivity near the transition temperature can be succinctly characterized by a complex order parameter field $\psi$. Near this critical temperature, the free energy of the system becomes
 \begin{eqnarray}
 F = F_n + \alpha |\psi|^2 + \frac {\beta} {2} |\psi|^4 + \frac {1} {2m} |(-i \hbar \nabla - 2 e \overrightarrow A) \psi|^2 + \frac {|\overrightarrow B |^2} {2 \mu_0}
@@ -13,7 +18,7 @@ F = F_n + \alpha |\psi|^2 + \frac {\beta} {2} |\psi|^4 + \frac {1} {2m} |(-i \hb
 where $F_n$ is the free energy, $\alpha$ and $\beta$ are system constants which will be defined later,$\mu_0$ is the magnetic permeability of free space , $m$ is the cooper pair effective mass, $e$ is electron charge, $\overrightarrow A$ is the magnetic vector potential, and $\overrightarrow B$ is the magnetic field. Being interested in the physical reprecussions of this kind of system, we minimize the free energy with respect to the order parameter and vector potential to get
 
 \begin{eqnarray}
-\alpha \psi + \beta |\psi|^2 \psi \frac {1} {2m} (-i \hbar \nabla - 2 e \overrightarrow A)^2 \psi = 0
+\alpha \psi + \beta |\psi|^2 \psi + \frac {1} {2m} (-i \hbar \nabla - 2 e \overrightarrow A)^2 \psi = 0
 \label{GLEQ1}
 \end{eqnarray}
 \begin{eqnarray}
@@ -24,16 +29,35 @@ where $F_n$ is the free energy, $\alpha$ and $\beta$ are system constants which 
 \overrightarrow j = \frac {2e} {m} Re(\psi^* (-i \hbar \nabla - 2 e \overrightarrow A) \psi)
 \label{GLEQ3}
 \end{eqnarray}
-where $j$ is the current and $Re$ is the real part. Equation ~\ref{GLEQ1} can be thought of in two parts. The first part ($\alpha \psi + \beta |\psi|^2 \psi $) is just the component relating to the superconductor, without supercurrent. Above the superconducting temperature, only $\psi = 0$ solves the equation. Below the superconducting temperature we have $|\psi|^2 = -\frac {\alpha} {beta}$, which is reminiscent of a quantum observable. The second half of ~\ref{GLEQ1} is basically a modified version of the Schrodinger time-independent equation, but with a magnetic potential. ~\ref{GLEQ2} is Ampere's law. ~\ref{GLEQ3} is also reminiscent of a quantum observable with $ -i \hbar \nabla - 2e \overrightarrow A$ as the operator. The Ginzburg-Landau equations can be related to the microscopic Bardeen-Cooper-Schrieffer theory ~\cite{Sadovskyy14}. 
+where $j$ is the current and $Re$ is the real part. Equation ~\ref{GLEQ1} can be thought of in two parts. The first part ($\alpha \psi + \beta |\psi|^2 \psi $) is just the component relating to the superconductor, without supercurrent. Above the superconducting temperature, only $\psi = 0$ solves the equation. Below the superconducting temperature we have $|\psi|^2 = -\frac {\alpha} {beta}$, which is reminiscent of a quantum observable. The second half of ~\ref{GLEQ1} is basically a modified version of the Schrodinger time-independent equation, but with a magnetic potential. ~\ref{GLEQ2} is Ampere's law. ~\ref{GLEQ3} is also similar to a quantum observable with $ -i \hbar \nabla - 2e \overrightarrow A$ as the momentum operator in the presence of a magnetic field. The Ginzburg-Landau equations can be related to the microscopic Bardeen-Cooper-Schrieffer theory ~\cite{Sadovskyy14}. 
+%%figure out where this goes
+This effect is a consequence of London's equations, which comes from Ampere's law:
+\begin{eqnarray}
+\nabla \times \overrightarrow B  = \mu_0 \overrightarrow J,
+\label{Ampere}
+\end{eqnarray}
+where $\overrightarrow B$ is the magnetic field, $\mu_0$ is the permeability of free space, and $\overrightarrow J$ is the current. We then use the vector identity
 
+\begin{eqnarray}
+\nabla \times \nabla \times \overrightarrow A  = -\nabla^2 \overrightarrow A,
+\label{stokes}
+\end{eqnarray}
+to get
+\begin{eqnarray}
+\nabla^2 B = \frac{B}{\lambda^2},
+\label{penetration}
+\end{eqnarray}
+
+where $\lambda$ is the penetration depth.
+%%down to here
 
 \section{Large $\lambda$ Limit}
-In high temperature superconductors, the penetration length $\lambda$ is much larger than the coherence length $\xi$. One consequence of this is that at length scales smaller than $\lambda$, the magnetic field is basically constant. The coherence length comes from the fermi velocity for the material and the energy gap between conducting and superconducting states~\cite{Kittel96}.  $\xi$ describes the length over which the superconducting electron density can change. This is also the size to which a cooper pair can spread. Another place it comes in is determining the size of the heart of the vortex. 
+In high temperature superconductors, the penetration length $\lambda$ is typically much larger than the coherence length $\xi$. One consequence of this is that at length scales smaller than $\lambda$, the magnetic field is basically constant. The coherence length comes from the fermi velocity for the material and the energy gap between conducting and superconducting states~\cite{Kittel96}.  $\xi$ describes the length over which the superconducting electron density can change. This is also the size to which a cooper pair can spread. Another place it comes in is determining the size of the core of the vortex. 
 
-\section{Vortices}
+\section{Phenomenological Vortex Interactions}
 
 \subsection{Vortex-Vortex Interactions}
-	This is the type of superconductor we are interested in. Unfortunately, these flux lines will move due to Lorentz forces $W = d \cdot F = d \cdot (B \times I)$ where $W$ is the energy drained away by moving vortices, $d$ is the distance the vortex travels, $F$ is the force on the vortex, $B$ is the field of the vortex, and $I$ is the current of the system. The acceleration of the vortex can be determined using the vortex mass which comes from the Cooper pairs which sustain it. Whether or not a vortex will move is complicated and hard to study analytically. There are many factors which affect the movement of a vortex. First, vortices which rotate in the same direction will push each other away~\ref{sameV}. Conversely, if the vortices spin in the same direction, they will attract and annihilate each other~\ref{diffV}. This can be explained if one looks at the lorentz forces of a vortex-vortex system.
+	 Vortex flux lines will move due to Lorentz forces $W = d \cdot F = d \cdot (B \times I)$ where $W$ is the energy drained away by moving vortices, $d$ is the distance the vortex travels, $F$ is the force on the vortex, $B$ is the field of the vortex, and $I$ is the current of the system. Whether or not a vortex will move is complicated and hard to study analytically. There are many factors which affect the movement of a vortex. First, vortices which rotate in the same direction will push each other away~\ref{sameV}. Conversely, if the vortices spin in the same direction, they will attract and annihilate each other~\ref{diffV}. This can be explained if one looks at the lorentz forces of a vortex-vortex system.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -51,6 +75,60 @@ In high temperature superconductors, the penetration length $\lambda$ is much la
 \end{center}
 \end{figure}
 
+\subsection{Vortex-Defect Interactions}
+The interaction between vortices and defects have been well-studied. Defects can be used to pin vortices and reduce dissipation. Defects can be impurities, vacancies, and inclusions. In one dimension they can be defects such as dislocations and irradiation tracks. Finally in three dimensions, they can be twin boundaries or stacking faults. The structure of atomic defects can have scattering properties which are either potential or magnetic type. Cooper pair-breaking caused by these defects has the effect of lowering the critical temperature. While studying these is important for pinning dynamics, it is the defecs which are on the order of several coherence lengths which are of interest to us. In three dimensions one can create columnar defects in the direction of the expected magnetic field. These have the strongest ability to hold on to vortices while causing the least amount of obstruction ~\cite{Kwok16}.
+
 \subsection{Vortex-Wall Interactions}
-The system is not always superconducting. It is also possible to embed non-superconducting components into the system. Since the super-current cannot enter this system (other than evanescently), There are many interesting effects to observe near these zones. First, a vortex near a magnetically neutral non-superconducting zone will be attracted to it. This can be seen as a type of "Venturi effect". Since the current flux must be conserved around a vortex, and there is not as much room for it to flow on the side closest to the wall, the current increases. A difference in current flux on opposing sides of the vortex then creates a force in the direction of the wall. The vortex is then pulled into the wall. The vortex will tend to remain there until pushed out by an external force. Two of the most common forces are external applied current and other vortices.
+The substrate is not always superconducting. It is also possible to embed non-superconducting components into the system. Since the super-current is suppressed in this system, There are many interesting effects to observe near these zones. First, a vortex near a magnetically neutral non-superconducting zone will be attracted to it. This can be seen as a type of "Venturi effect". Since the current flux must be conserved around a vortex, and there is not as much room for it to flow on the side closest to the wall, the current increases. A difference in current flux on opposing sides of the vortex then creates a force in the direction of the wall. The vortex is then pulled into the wall. The vortex will tend to remain there until pushed out by an external force. Two of the most common forces are external applied current and other vortices.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{geometryInside.png}
+\caption{Vortices (pink) will tend to get stuck inside inclusions (blue). That is because the supercurrent will travel faster outside of the inclusion, diminishing the amount of supercurrent inside. The vortex will therefore feel a force away from the boundary with the stronger superconductor.}
+\label{geometryInside}
+\end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[scale=.50]{repulsion.png}
+\caption{Once a vortex is stuck inside an inclusion, it will repel any other vortices which come near it.}
+\label{repulsion}
+\end{center}
+\end{figure}
+
+\section{Relevant Vortex studies}
+
+Type 2 superconductors, while working at liquid nitrogen temperatures, have the problem of energy dissipation due to vortex dynamics. Therefore many geometric solutions are being worked on to try to slow down this energy loss. Here we focus on two of the most promising, vortex matching and funneling.
+
+\section{Vortex Matching and $\delta T_c$ Pinning}
+With improvements in nanotechnology, it has become easier to create grids of inclusions. These can be made by inserting nanorods of different critical superconducting temperature ($T_c$), pulsed laser deposition , by using ion beams to disrupt the superconducting lattice, or by using lithographic techniques.
+
+Inserting nanorods of materials using bulk targets has is benefits and problems. These nanorods can be made to have different $T_c$ by controling the crystalinity or the amount of oxygen doping. \cite{Horii15} found a positive vortex-pinning effect due to the nanorods up to a magnetic field of 5 Tesla. They calculated the inter-vortex distance and designed a particular nanorod density. From there they were able to show that vortex-matching had a stronger pinning effect on the system. Varying the $T_c$ of the system is a powerful way to control the vortex dynamics.
+
+Pulsed laser deposition of YBCO can extend the irreversibility of magnetic fields past the 10 Tesla marker. This was done by using BYTO additions to pin the fluxes. All of this is thanks to the increased availability of ordered nanosized oxide secondary phases in epitaxial thin films. This allows the tuning of material functionalities and has various applications including high temperature superconductors. They observed a large improvement to the critical current compared to untouched YBCO~\cite{Rizzo16}. Accurate placement of inclusions is important as inter-vortex forces are on the order of $1/r$.      
+
+Ion beam etching can also be used to create the necessary inclusions. These antidot arrays can be made on thin films of Niobium Nitride using reactive dc sputtering. The antidot arrays are then created using a mask-aligner to do the ion-beam etching. They find experimental evidence for the observation that the maximum number of vortices which can be captured by an antidot of diameter d is
+\begin{eqnarray}
+n_s = \frac {d} {4 \xi(t)}, 
+\label{}
+\end{eqnarray}
+where $\xi(t) = \xi_0 / \sqrt{1-t}$ and $t$ is a reduced temperature, typically in the range of $0.9 - 0.95$. They also found that vortices would become trapped in the antidots as well as in the interstices of the antidot lattice. This means that the critical current depends on the geometry of the lattice as well as the direction of current~\cite{Thakur09}. Multiple vortex antidots and inter-vortex trapping are important phenomenta when studying vortex matching. A theoretical basis for vortex matching has also been found. Berdiyorov et. al. ~\cite{Berdiyorov06} used the nonlinear Ginzburg-Landau theory to obtain all configurations for vortices in a grid of defects. They also find that vortices will pin in the inclusions and in between them. For small inclusions, they find only one vortex is trapped per hole. The hole radius and inter-hole distance determines the ability of multiple vortices to be forced into the holes. Like spheres in a box, The vortices prefer a triangular lattice as that affords the densest packing. If the pinning force of the holes becomes small enough, the lattices shift from the grid imposed quadratic lattice to a more natural triangular lattice. They find matching effects at whole and fractional magnatic field to hole ratios. Finally, they found their results to not agree with the Little-Parks theory of superconductors.
+
+Lithographic (sputter etching) techniques were used to create arrays of submicrometere sized pinning arrays. These were compared to simulated $J_c$ curves using the time dependent Ginzburg Landau model. They found that the critical current exibited maxima at the expected matching fields at 2.3 degrees Kelvin. The critical current was considerably larger than systems without antidot arrays~\cite{Sabatino10}.
+It is important to have a physical temperature at which these phenomena occur as most Ginzburg-Landau simulations only describe temperature in relation to $T_c$.
+
+\section{Vortex Jamming and Geometric Pinning}
+Another way to increase the depinning current of a system is to get the vortices to pin each other. This jamming effect can be accomplished by manipulating the geometry of the system they must past through. Different geometric strategies have been tried including simple funnels, diamonds, and conformal maps. Vortex ratchets and fluxon pumps are also of great interest in the superconducting world. These use diode-like geometries to keep vortices going in one direction. These effects can be seen even with a symmetric force such as an alternating current.  
+
+Computer simulations have been popular in demonstrating the usefulness of vortex ratchets. Within these ratchets, vortices will go through certain phases depending on the strength of the magnetic field. These phases are known as triangular, smectic, disordered, and square~\cite{Lu06}. They showed that sawtooth ridges which modulate the z-component of a superconductor can have a similar effect as triangular modulations in the x and y-components. They used a Langevin model to simulate the vortices, which starts to become unphysical as the vortex density increases.  
+
+The optimal size of the funnel tip is such that only one vortex can pass at a time due to vortex-vortex repulsion forces. Reichhardt et. al.~\cite{Reichhardt10} , through the help of simulations, observed that the sum of the vortex velocities remains constant with increasing magnetic field. They highlight the similarities to a granular hopper, decreasing the width of the hopper aperture decreases the flow of grains. They found that as the number of vortices increases, the pinned vortex structure becomes larger and harder to deform. This then keeps individuals from passing through the bottleneck.
+
+Fluxon pumps can be used to extract useful work from a fluctuating environment. The vortex ratchet can be used as a fluxon rectifier. These could be used as fluxon lenses to concentrate or disperse magnetic fields. These would have various uses including dispersing trapped flux in SQUID magnetometers. But to get the desired effects, the frequency must hit the appropriate resonance region~\cite{Wambaugh99}. This means not only the right frequency for the geometry, but also the correct temperature (i.e. random motion). Thermal noise had to be kept low in the pinning systems. Like sand in an hourglass, minor turbulence has a large effect on the ability of vortices to stick. They again back up the idea that the more fluxons one has, the more their motion will be restricted.
+
+Vortices travelling through constricting lattices can also be used to study the dynamics of interacting particles travelling through confining potentials. Yu et. al. found that with the correct geometry, vortices would begin moving as the external magnetic field varied~\cite{Yu10}. They found strong matching effects between the vortex distribution and the constriction lattice. By tailoring their diamond shaped channel, they could pick their confining potential. The angle of the wall has a strong effect on the ability of the system to be immobilized.
+
+We built upon previous GLGPU research in geometric pinning. In order to simulate geometrical constraints and voids of various shapes we impose appropriate internal boundary conditions or use unstructured grid discretizations~\cite{Kwok16}. The boundary conditions are imposed via picking no current (open) boundaries which simulate insulating inclusions~\cite{Sadovskyy14}. Multiple types of tesselations are also possible, including checkerboard, or less standard Voronoi tesselations. These are useful for polycrystalline thin superconducting films with variations of $T_c$.
+
  
