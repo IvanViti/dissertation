@@ -6,28 +6,17 @@
 %%
 %% geometry.dtx  (with options: `package')
 %% 
-%% Copyright (C) 1996-2002, 2008 by Hideo Umeki <latexgeometry@gmail.com>
-%% 
-%% This work may be distributed and/or modified under the conditions of
-%% the LaTeX Project Public License, either version 1.3c of this license
-%% or (at your option) any later version. The latest version of this
-%% license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.3c or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%% 
-%% This work is "maintained" (as per the LPPL maintenance status)
-%% by Hideo Umeki.
-%% 
-%% This work consists of the files geometry.dtx and
-%% the derived files: geometry.{sty,ins,drv}, geometry-samples.tex.
-%% 
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{geometry}
-  [2008/12/21 v4.2 Page Geometry]
+%% File: geometry.dtx Copyright (C) 1996-2002 Hideo Umeki
+%%                              (hideo.umeki@toshiba.co.jp)
+%%
+%% This package may be distributed under the terms of the LaTeX
+%% Project Public License, as described in lppl.txt in the base
+%% LaTeX distribution, either version 1.2 or (at your option)
+%% any later version.
+%%
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{geometry}[2002/07/08 v3.2 Page Geometry]
 \RequirePackage{keyval}%
-\RequirePackage{ifpdf}%
-\RequirePackage{ifvtex}%
 \newif\ifGm@verbose
 \newif\ifGm@landscape
 \newif\ifGm@includehead
@@ -38,9 +27,9 @@
 \newif\ifGm@heightrounded
 \newif\ifGm@showframe
 \newif\ifGm@compatii
+\newif\ifGm@special
 \newif\ifGm@sworient\Gm@sworientfalse
 \newif\ifGm@pass\Gm@passfalse
-\newif\ifGm@resetpaper
 \newcount\Gm@cnth
 \newcount\Gm@cntv
 \newcount\c@Gm@tempcnt
@@ -71,8 +60,6 @@
 \@onlypreamble\Gm@vtex
 \def\Gm@true{true}%
 \def\Gm@false{false}%
-\edef\Gm@orgpw{\the\paperwidth}%
-\edef\Gm@orgph{\the\paperheight}%
 \edef\Gm@dorg{%
   \noexpand\setlength{\paperwidth}{\the\paperwidth}%
   \noexpand\setlength{\paperheight}{\the\paperheight}%
@@ -104,7 +91,7 @@
   \Gm@hbodyfalse\Gm@vbodyfalse
   \Gm@includeheadfalse\Gm@includefootfalse\Gm@includempfalse
   \Gm@landscapefalse\Gm@compatiifalse\Gm@heightroundedfalse
-  \Gm@verbosefalse\Gm@showframefalse\Gm@resetpaperfalse
+  \Gm@verbosefalse\Gm@showframefalse\Gm@specialfalse
   \let\Gm@paper\@undefined
   \let\Gm@width\@undefined\let\Gm@height\@undefined
   \let\Gm@textwidth\@undefined\let\Gm@textheight\@undefined
@@ -345,12 +332,12 @@
 \def\Gm@chpaper{\@nameuse{Gm@\Gm@paper}}%
 \@onlypreamble\Gm@chpaper
 \@namedef{Gm@a0paper}{\Gm@setpaper(841,1189){mm}}%
-\@namedef{Gm@a1paper}{\Gm@setpaper(594,841){mm}}%
-\@namedef{Gm@a2paper}{\Gm@setpaper(420,594){mm}}%
+\@namedef{Gm@a1paper}{\Gm@setpaper(595,841){mm}}%
+\@namedef{Gm@a2paper}{\Gm@setpaper(420,595){mm}}%
 \@namedef{Gm@a3paper}{\Gm@setpaper(297,420){mm}}%
 \@namedef{Gm@a4paper}{\Gm@setpaper(210,297){mm}}%
-\@namedef{Gm@a5paper}{\Gm@setpaper(148,210){mm}}%
-\@namedef{Gm@a6paper}{\Gm@setpaper(105,148){mm}}%
+\@namedef{Gm@a5paper}{\Gm@setpaper(149,210){mm}}%
+\@namedef{Gm@a6paper}{\Gm@setpaper(105,149){mm}}%
 \@namedef{Gm@b0paper}{\Gm@setpaper(1000,1414){mm}}%
 \@namedef{Gm@b1paper}{\Gm@setpaper(707,1000){mm}}%
 \@namedef{Gm@b2paper}{\Gm@setpaper(500,707){mm}}%
@@ -358,11 +345,6 @@
 \@namedef{Gm@b4paper}{\Gm@setpaper(250,353){mm}}%
 \@namedef{Gm@b5paper}{\Gm@setpaper(176,250){mm}}%
 \@namedef{Gm@b6paper}{\Gm@setpaper(125,176){mm}}%
-\@namedef{Gm@ansiapaper}{\Gm@setpaper(8.5,11){in}}%
-\@namedef{Gm@ansibpaper}{\Gm@setpaper(11,17){in}}%
-\@namedef{Gm@ansicpaper}{\Gm@setpaper(17,22){in}}%
-\@namedef{Gm@ansidpaper}{\Gm@setpaper(22,34){in}}%
-\@namedef{Gm@ansiepaper}{\Gm@setpaper(34,44){in}}%
 \@namedef{Gm@letterpaper}{\Gm@setpaper(8.5,11){in}}%
 \@namedef{Gm@legalpaper}{\Gm@setpaper(8.5,14){in}}%
 \@namedef{Gm@executivepaper}{\Gm@setpaper(7.25,10.5){in}}%
@@ -383,11 +365,6 @@
 \define@key{Gm}{b4paper}[true]{\def\Gm@paper{b4paper}\Gm@chpaper}%
 \define@key{Gm}{b5paper}[true]{\def\Gm@paper{b5paper}\Gm@chpaper}%
 \define@key{Gm}{b6paper}[true]{\def\Gm@paper{b6paper}\Gm@chpaper}%
-\define@key{Gm}{ansiapaper}[true]{\def\Gm@paper{ansiapaper}\Gm@chpaper}%
-\define@key{Gm}{ansibpaper}[true]{\def\Gm@paper{ansibpaper}\Gm@chpaper}%
-\define@key{Gm}{ansicpaper}[true]{\def\Gm@paper{ansicpaper}\Gm@chpaper}%
-\define@key{Gm}{ansidpaper}[true]{\def\Gm@paper{ansidpaper}\Gm@chpaper}%
-\define@key{Gm}{ansiepaper}[true]{\def\Gm@paper{ansiepaper}\Gm@chpaper}%
 \define@key{Gm}{letterpaper}[true]{\def\Gm@paper{letterpaper}\Gm@chpaper}%
 \define@key{Gm}{legalpaper}[true]{\def\Gm@paper{legalpaper}\Gm@chpaper}%
 \define@key{Gm}{executivepaper}[true]{\def\Gm@paper{executivepaper}%
@@ -506,11 +483,8 @@
   \Gm@doif{reversemp}{#1}{\csname @reversemargin\Gm@bool\endcsname}}%
 \define@key{Gm}{reversemarginpar}[true]{%
   \Gm@doif{reversemarginpar}{#1}{\csname @reversemargin\Gm@bool\endcsname}}%
-\define@key{Gm}{driver}{\edef\@@tempa{#1}\edef\@@auto{auto}\edef\@@none{none}%
-  \ifx\@@tempa\@empty\let\Gm@driver\relax\else
-  \ifx\@@tempa\@@none\let\Gm@driver\relax\else
-  \ifx\@@tempa\@@auto\let\Gm@driver\@empty\else
-  \setkeys{Gm}{#1}\fi\fi\fi\let\@@auto\relax\let\@@none\relax}%
+\define@key{Gm}{driver}{\edef\@@tempa{#1}%
+  \ifx\@@tempa\@empty\let\Gm@driver\@empty\else\setkeys{Gm}{#1}\fi}%
 \define@key{Gm}{dvips}[true]{%
   \Gm@doifelse{dvips}{#1}{\Gm@setdriver{dvips}}{\Gm@unsetdriver{dvips}}}%
 \define@key{Gm}{dvipdfm}[true]{%
@@ -522,7 +496,6 @@
 \define@key{Gm}{verbose}[true]{\Gm@setbool{verbose}{#1}}%
 \define@key{Gm}{reset}[true]{\Gm@doifelse{reset}{#1}%
   {\Gm@init\Gm@dorg\ProcessOptionsKV[c]{Gm}\Gm@setdefaultpaper}{}}%
-\define@key{Gm}{resetpaper}[true]{\Gm@setbool{resetpaper}{#1}}%
 \define@key{Gm}{mag}{\mag=#1}%
 \define@key{Gm}{truedimen}[true]{\Gm@doifelse{truedimen}{#1}%
   {\let\Gm@truedimen\Gm@true}{\let\Gm@truedimen\@empty}}%
@@ -587,30 +560,25 @@
   \fi}%
 \@onlypreamble\Gm@checkmp
 \def\Gm@checkdrivers{%
-  \ifx\Gm@driver\@empty
-    \typeout{*geometry auto-detecting driver*}%
-    \ifpdf
+  \ifx\pdfpagewidth\@undefined\else
+    \ifnum\pdfoutput=\@ne
       \Gm@setdriver{pdftex}%
-    \else
-      \Gm@setdriver{dvips}%
     \fi
-    \@ifundefined{XeTeXrevision}{}{\Gm@setdriver{pdftex}}%
-    \ifvtex
+  \fi
+  \ifx\VTeXversion\@undefined\else
+    \ifnum\OpMode=\@ne
       \Gm@setdriver{vtex}%
+    \else
+      \ifnum\OpMode=\tw@
+        \Gm@setdriver{vtex}%
+      \fi
     \fi
+  \fi
+  \ifx\Gm@driver\Gm@dvips
+    \Gm@specialtrue
   \else
-    \ifx\Gm@driver\Gm@pdftex
-      \ifpdf\else
-         \@ifundefined{XeTeXrevision}{\Gm@warning{%
-            Wrong driver setting: `pdftex'; using default driver}%
-            \Gm@setdriver{dvips}}{}%
-      \fi
-    \fi
-    \ifx\Gm@driver\Gm@vtex
-      \ifvtex\else
-        \Gm@warning{Wrong driver setting: `vtex'; using default driver}%
-        \Gm@setdriver{dvips}%
-      \fi
+    \ifx\Gm@driver\Gm@dvipdfm
+       \Gm@specialtrue
     \fi
   \fi}%
 \@onlypreamble\Gm@checkdrivers
@@ -638,9 +606,9 @@
   \fi}%
 \@onlypreamble\Gm@mpfix
 \def\Gm@process{%
-  \ifGm@pass
-    \Gm@dorg
-  \else
+ \ifGm@pass
+  \Gm@dorg
+ \else
   \Gm@processdimlist
   \ifx\Gm@hmarginratio\@undefined
     \if@twoside
@@ -689,12 +657,6 @@
       \fi
     \fi
     \ifx\Gm@lines\@undefined\else
-      \ifdim\topskip<\ht\strutbox
-        \setlength\@tempdima{\topskip}%
-        \setlength\topskip{\ht\strutbox}%
-        \Gm@warning{\noexpand\topskip was changed from \the\@tempdima\space
-        to \the\topskip}%
-      \fi
       \setlength\@tempdima{\baselineskip}%
       \multiply\@tempdima\Gm@lines
       \addtolength\@tempdima{\topskip}%
@@ -796,7 +758,7 @@
   \Gm@checkbool{includehead}%
   \Gm@checkbool{includefoot}%
   \Gm@checkbool{includemp}%
-  driver: \if\Gm@driver\relax --\else\Gm@driver\fi^^J%
+  driver: \Gm@driver^^J%
   \fi
   -------------------- Page layout dimensions and switches^^J%
   \string\paperwidth\space\space\the\paperwidth^^J%
@@ -856,13 +818,8 @@
 \ProcessOptionsKV[p]{Gm}%
 \Gm@process
 \AtBeginDocument{%
-  \ifGm@resetpaper
-    \edef\Gm@pw{\Gm@orgpw}%
-    \edef\Gm@ph{\Gm@orgph}%
-  \else
-    \edef\Gm@pw{\the\paperwidth}%
-    \edef\Gm@ph{\the\paperheight}%
-  \fi
+  \edef\Gm@orgw{\the\paperwidth}%
+  \edef\Gm@orgh{\the\paperheight}%
   \ifGm@pass\else
     \ifnum\mag=\@m\else
       \Gm@magtooffset
@@ -873,46 +830,32 @@
     \fi
   \fi
   \Gm@checkdrivers
-  \ifx\Gm@driver\relax
-    \typeout{*geometry detected driver: <none>*}%
-  \else
-    \typeout{*geometry detected driver: \Gm@driver*}%
-  \fi
   \ifx\Gm@driver\Gm@pdftex
-    \setlength\pdfpagewidth{\Gm@pw}%
-    \setlength\pdfpageheight{\Gm@ph}%
-    \ifnum\mag=\@m\else
-      \@tempdima=\mag sp%
-      \divide\pdfhorigin\@tempdima
-      \multiply\pdfhorigin\@m
-      \divide\pdfvorigin\@tempdima
-      \multiply\pdfvorigin\@m
-      \ifx\Gm@truedimen\Gm@true
-        \setlength\paperwidth{\Gm@pw}%
-        \setlength\paperheight{\Gm@ph}%
-      \fi
+    \ifx\pdfpagewidth\@undefined
+      \Gm@warning{`pdftex' option is invalid in this environment}%
+    \else
+      \setlength\pdfpagewidth{\Gm@orgw}%
+      \setlength\pdfpageheight{\Gm@orgh}%
+      \ifnum\mag=\@m\else\ifx\Gm@truedimen\Gm@true
+        \setlength\paperwidth{\Gm@orgw}%
+        \setlength\paperheight{\Gm@orgh}%
+      \fi\fi
     \fi
   \fi
   \ifx\Gm@driver\Gm@vtex
-    \mediawidth=\paperwidth
-    \mediaheight=\paperheight
-    \ifvtexdvi
-      \AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}%
+    \ifx\VTeXversion\@undefined
+      \Gm@warning{`vtex' option is invalid in this environment}%
+    \else
+      \mediawidth=\paperwidth
+      \mediaheight=\paperheight
     \fi
   \fi
-  \ifx\Gm@driver\Gm@dvips
+  \ifGm@special
     \AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}%
     \ifx\Gm@driver\Gm@dvips\ifGm@landscape
       \AtBeginDvi{\special{! /landplus90 true store}}%
     \fi\fi
-  \else\ifx\Gm@driver\Gm@dvipdfm
-    \ifcase\ifx\AtBeginShipoutFirst\relax\@ne\else
-        \ifx\AtBeginShipoutFirst\@undefined\@ne\else\z@\fi\fi
-      \AtBeginShipoutFirst{\special{papersize=\the\paperwidth,\the\paperheight}}%
-    \or
-      \AtBeginDvi{\special{papersize=\the\paperwidth,\the\paperheight}}%
-    \fi
-  \fi\fi
+  \fi
   \ifGm@showframe
     \AtBeginDvi{%
       \moveright\@themargin%
@@ -944,10 +887,8 @@
   \let\Gm@wd@mp\relax
   \let\Gm@odd@mp\relax
   \let\Gm@even@mp\relax
-  \let\Gm@orgpw\relax
-  \let\Gm@orgph\relax
-  \let\Gm@pw\relax
-  \let\Gm@ph\relax
+  \let\Gm@orgw\relax
+  \let\Gm@orgh\relax
   \let\Gm@dimlist\relax}%
 \def\geometry#1{%
   \Gm@clean

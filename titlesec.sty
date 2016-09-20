@@ -2,23 +2,16 @@
 % | Typeset titlesec.tex to get the documentation.   |
 % +--------------------------------------------------+
 %
-% Copyright (c) 1998-2007 by Javier Bezos.
+% Copyright (c) 1998-2005 by Javier Bezos.
 % All Rights Reserved.
 %
-% This file is part of the titlesec distribution release 2.8
+% This file is part of the titlesec distribution release 2.6
 % -----------------------------------------------------------
 %
-% It may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License, either version 1.3
-% of this license or (at your option) any later version.
-% The latest version of this license is in
-%   http://www.latex-project.org/lppl.txt
-% and version 1.3 or later is part of all distributions of LaTeX
-% version 2003/12/01 or later.
-% 
-% This work has the LPPL maintenance status "maintained".
-% 
-% The Current Maintainer of this work is Javier Bezos.
+% This program can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License Distributed from CTAN
+% archives in directory macros/latex/base/lppl.txt; either
+% version 1 of the License, or any later version.
 
 % History of v1.0
 % ~~~~~~~~~~~~~~~
@@ -198,7 +191,7 @@
 %          -  Removed extra (but inoffensive) \expandafter
 %             in \ttl@class@iii.
 % 2002/03/27  Added \titlewidthfirst and ...last
-%          -  "Not definable" gives a  more meaningful message in
+%          -  «Not definable» gives a  more meaningful message in
 %             the context of the package.
 %
 % History of v.2.6
@@ -225,22 +218,6 @@
 % 2005/01/21  Changed pageatnewline to make it compatible with
 %             titletoc, with \ttl@changecentercr.
 % 2005/01/22  \...tolist in top class.
-%
-% History of v.2.7
-% ~~~~~~~~~~~~~~~~
-% 2007-03-27  Added the `explicit' option.
-% 2007-03-27  Added \titlepagestyle.
-% 2007-03-29  Fixed wrong number for chapter in log
-% 2007-03-29  Patch file named .270 instead of .new
-% 2007-05-09  Added <after> to leftmargin, so that you can add stuff
-%             at the beginning of the paragraph, eg, the sec number.
-% 2007-07-07  Removed the patch mechanism.
-% 2007-08-07  `explicit' improved.
-%
-% History of v.2.8
-% ~~~~~~~~~~~~~~~~
-% 2007-08-12  \titlepagestyle already used by KOMA-Script. Renamed
-%             to \assignpagestyle.
 %  
 % Notes
 % ~~~~~
@@ -270,7 +247,7 @@
 % ~~~~~~~
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{titlesec}[2007/08/12 v2.8 Sectioning titles]
+\ProvidesPackage{titlesec}[2005/01/22 v2.6 Sectioning titles]
 
 % Initialization
 % ~~~~~~~~~~~~~~
@@ -388,7 +365,7 @@
   \expandafter\edef\csname ttlss@\ttl@b\endcsname{\ttl@a}%
   \let\ttl@a\ttl@toplevel
   \count@\csname ttll@\ttl@toplevel\endcsname
-  \ttl@class@iv}
+  \ttl@class@iv}%  \expandafter
 
 \def\ttl@class@iv{%
   \@ifundefined{ttlss@\ttl@a}{}%
@@ -486,8 +463,6 @@
 % is not lost inside a box by saving it into \ttl@mk,
 % which in turn is used by the sect and chap commands.
 
-\newif\ifttl@explicit
-
 \def\ttl@gmk#1{\gdef\ttl@mk{#1}}
 
 \def\ttl@select#1#2#3#4{%
@@ -511,13 +486,7 @@
    \def\ttl@b{ttlf@#1}%
    \def\ttl@a##1{\csname ttl@key@##1\endcsname}% Used as elt in try
    \ttl@trylist
-   \ifttl@explicit
-     \def\ttl@passexplicit{#4}% 
-     \ttl@c{#4}{#2}{#3}{}% ttl@c is returned by ttl@try with ttlf@...
-   \else     
-     \let\ttl@passexplicit\@empty 
-     \ttl@c{#2}{#3}{#4}% ttl@c is returned by ttl@try with ttlf@...
-   \fi
+   \ttl@c{#2}{#3}{#4}% ttl@c is returned by ttl@try with ttlf@...
   \endgroup}
 
 \let\ttl@savewrite\@empty
@@ -567,7 +536,6 @@
         \ttl@labelfalse     % Third: if too deep
       \else
         \ttl@Hy@refstepcounter{#1}%
-        \@nameuse{ttl@#1out}%
       \fi
     \fi
   \fi
@@ -583,13 +551,9 @@
 
 % Executed by ttl@labelling if the name of section is chapter:
 
-\def\ttl@chapterlabel{\if@mainmatter\else\ttl@labelfalse\fi}
-
-% Executed by ttl@labelling if chapter has a number. Note
-% you can define messages for other sectioning levels (eg,
-% \ttl@sectionout).
-
-\def\ttl@chapterout{\typeout{\chaptertitlename\space\thechapter.}}
+\def\ttl@chapterlabel{%
+  \if@mainmatter\else\ttl@labelfalse\fi
+  \typeout{\chaptertitlename\space\thechapter.}}
 
 % Straight class
 % ~~~~~~~~~~~~~
@@ -629,8 +593,6 @@
     \@ifundefined{#6break}%
       {\addpenalty{\@secpenalty}}%
       {\csname#6break\endcsname}%
-    \@ifundefined{ttl@ps@\string#6}{}%
-      {\PackageWarning{titlesec}{Page style in straight class ignored}}%
     \addvspace{\@tempskipa}%
     \ifdim\bottomtitlespace<\z@
     \else
@@ -687,8 +649,6 @@
 \def\ttl@part@ii#1#2#3#4#5#6#7{%
   \ttl@assign\@tempskipa#3\relax\beforetitleunit
   \vspace*{\@tempskipa}%
-  \@ifundefined{ttl@ps@\string#6}{}%
-    {\PackageWarning{titlesec}{Page style in part class ignored}}%
   \global\@afterindenttrue
   \ifcase#5 \global\@afterindentfalse \fi
   \ttl@assign\@tempskipb#4\relax\aftertitleunit 
@@ -716,9 +676,7 @@
   \else
     \clearpage
   \fi
-  \@ifundefined{ttl@ps@\string#6}%
-    {\thispagestyle{plain}}%
-    {\thispagestyle{\@nameuse{ttl@ps@\string#6}}}%
+  \thispagestyle{plain}%
   \if@twocolumn
     \onecolumn
     \@tempswatrue
@@ -737,9 +695,7 @@
   \if@twoside
     \if@openright
       \null
-      \@ifundefined{ttl@ps@\string#6}%
-        {\thispagestyle{empty}}%
-        {\thispagestyle{\@nameuse{ttl@ps@\string#6}}}%
+      \thispagestyle{empty}%
       \newpage
     \fi
   \fi
@@ -757,8 +713,6 @@
   \gdef\ttl@savemark{\csname#6mark\endcsname{#7}}%
   \let\ttl@savewrite\@empty
   \let\ttl@Hy@saveanchor\@empty
-  \@ifundefined{ttl@ps@\string#6}{}%
-    {\thispagestyle{\@nameuse{ttl@ps@\string#6}}}%
   \let\ifttl@toclabel\ifttl@label
   \ttl@mkchap@i{#1}{#2}{#3}{#4}{#5}{#6}{#7}}
 
@@ -791,9 +745,7 @@
        \clearpage
      \fi}%
     {\csname#6break\endcsname}%
-  \@ifundefined{ttl@ps@\string#6}%
-    {\thispagestyle{plain}}%
-    {\thispagestyle{\@nameuse{ttl@ps@\string#6}}}%
+  \thispagestyle{plain}%
   \global\@topnum\z@
   \@ifundefined{#6tolists}%
     {\addtocontents{lof}{\protect\ttl@tocsep}%
@@ -852,8 +804,6 @@
 % whose content is
 %  \ttl@<shape>{format}{label}{sep}{before}{after}
 
-\newtoks\ttl@toksa
-
 \newcommand\titleformat{%
   \@ifstar{\ttl@format@s}%
           {\ttl@format@i}}
@@ -876,17 +826,16 @@
 
 \def\ttl@format@ii#1[#2]#3#4#5#6{%
   \ttl@getkeys{#1}{titlesec}%
-  \ttl@toksa{{#3}{#4}{#5}{#6}}% Save  arguments
   \@ifnextchar[{%
-    \ttl@format@iii{#2}%
+    \ttl@format@iii{#2}{#3}{#4}{#5}{#6}%
   }{%
-    \ttl@format@iii{#2}[]}}
+    \ttl@format@iii{#2}{#3}{#4}{#5}{#6}[]}}
 
 % First, we get the shape -- if not defined it loads
 % the corresponding file.
 
 
-\def\ttl@format@iii#1[#2]{%
+\def\ttl@format@iii#1#2#3#4#5[#6]{%
   \@ifundefined{ttlh@#1}{%
     \begingroup
     \makeatletter
@@ -896,19 +845,8 @@
           Either you have misspelled the shape\MessageBreak
           or there is no a #1.tss file}}%
     \endgroup}{}%
-  \@temptokena{#2}%
-  \ifttl@explicit
-    \edef\ttl@b{%
-      \def\expandafter\noexpand\csname ttlf@\ttl@a\endcsname####1%
-      {\expandafter\noexpand\csname ttlh@#1\endcsname
-       \the\ttl@toksa{\the\@temptokena}}}%
-  \else
-    \edef\ttl@b{%
-      \def\expandafter\noexpand\csname ttlf@\ttl@a\endcsname
-      {\expandafter\noexpand\csname ttlh@#1\endcsname
-       \the\ttl@toksa{\the\@temptokena}}}%
-  \fi
-  \ttl@b
+  \expandafter\def\csname ttlf@\ttl@a\expandafter\endcsname
+      \expandafter{\csname ttlh@#1\endcsname{#2}{#3}{#4}{#5}{#6}}%
   \csname ttl@compat\ttl@a\endcsname}
 
 % Styles
@@ -919,8 +857,6 @@
 % arguments:
 % {format}{label}{sep}{before}{after}{left}{right}{title}
 % where before and after refer to the format.
-% With the option explicit, #4 contains the title and #8 is
-% empty.
 
 \def\ttlh@display#1#2#3#4#5#6#7#8{%
   \gdef\ttl@makeline##1{\ttl@calc\hspace{#6}##1\ttl@calc\hspace{#7}}%
@@ -1141,8 +1077,6 @@
 
 \DeclareOption{footmarks}{} % Backward compat
 
-\DeclareOption{explicit}{\ttl@explicittrue}
-
 \DeclareOption{clearempty}{%
   \def\cleardoublepage{%
     \clearpage{\ps@empty\if@twoside\ifodd\c@page\else
@@ -1296,10 +1230,6 @@
 %               +-----------------+
 %               |   PAGE STYLES   |
 %               +-----------------+
-%
-% This is generic:
-
-\newcommand\assignpagestyle[2]{\@namedef{ttl@ps@\string#1}{#2}}
 
 % Old pagestyles
 % ~~~~~~~~~~~~~~
@@ -1356,7 +1286,9 @@
      \let\ifttl@toclabel\ifttl@label
      \@dblarg{#1}}}
 
-\@ifundefined{ttl@extract}{}{\endinput}
+\@ifundefined{ttl@extract}{}{% Load patches here if we exit
+  \InputIfFileExists{titlesec.new}{}{}%
+  \endinput}
 
 \newcommand\titlelabel[1]{%
   \def\@seccntformat##1{#1}}
@@ -1397,23 +1329,17 @@
   \ifdim\@tempskipb<\z@
     \if@tempswa
       \titleformat#8[runin]%
-         {\ttl@fonts\ttl@sizes{#3}}{\@seccntformat{#2}}%
-         {\z@}\ttl@passexplicit
+         {\ttl@fonts\ttl@sizes{#3}}{\@seccntformat{#2}}{\z@}{}%
     \else
-      \titleformat#8[runin]%
-         {#7}{\@seccntformat{#2}}%
-         {\z@}\ttl@passexplicit
+      \titleformat#8[runin]{#7}{\@seccntformat{#2}}{\z@}{}%
     \fi
     \@tempskipb-\@tempskipb
   \else
     \if@tempswa
       \titleformat#8%
-        {\ttl@fil\ttl@fonts\ttl@sizes{#3}}{\@seccntformat{#2}}%
-        {\z@}\ttl@passexplicit 
+        {\ttl@fil\ttl@fonts\ttl@sizes{#3}}{\@seccntformat{#2}}{\z@}{}%
     \else
-      \titleformat#8%
-        {#7}{\@seccntformat{#2}}%
-        {\z@}\ttl@passexplicit
+      \titleformat#8{#7}{\@seccntformat{#2}}{\z@}{}%
     \fi
     \@ifundefined{ttl@space}{}{%
       \ttl@assign\@tempskipb*\ttl@space\relax\aftertitleunit}%
@@ -1458,7 +1384,7 @@
   \expandafter\ifx\csname chapter\endcsname\relax\else
    \titleformat\chapter[display]%
     {\@ifundefined{ttl@fil}{\raggedright}{\ttl@fil}\ttl@fonts\ttl@sizes6}
-    {\@chapapp\space\thechapter}{.8\baselineskip}{\ttl@sizes\z@\ttl@passexplicit}
+    {\@chapapp\space\thechapter}{.8\baselineskip}{\ttl@sizes\z@}
   \fi
 
 \fi
@@ -1490,16 +1416,10 @@
   \let\ttl@save@mkschap\@makeschapterhead
 
   \def\@makechapterhead#1{%
-    \gdef\ttl@savemark{\chaptermark{#1}}%
-    \ttl@save@mkchap{#1}%
-    \@ifundefined{ttl@ps@\string\chapter}{}%
-      {\thispagestyle{\@nameuse{ttl@ps@\string\chapter}}}}
+    \gdef\ttl@savemark{\chaptermark{#1}}\ttl@save@mkchap{#1}}
 
   \def\@makeschapterhead#1{%
-    \gdef\ttl@savemark{\chaptermark{#1}}%
-    \ttl@save@mkschap{#1}%
-    \@ifundefined{ttl@ps@\string\chapter}{}%
-      {\thispagestyle{\@nameuse{ttl@ps@\string\chapter}}}}
+    \gdef\ttl@savemark{\chaptermark{#1}}\ttl@save@mkschap{#1}}
 
   \@namedef{ttll@part}{-1}
   \@namedef{ttlss@part}{chapter}
@@ -1525,5 +1445,9 @@
 \titleclass{\subsubsection}{straight}[\subsection]
 \titleclass{\paragraph}    {straight}[\subsubsection]
 \titleclass{\subparagraph} {straight}[\paragraph]
+
+% Load patches if necessary
+
+\InputIfFileExists{titlesec.new}{}{}
 
 \endinput

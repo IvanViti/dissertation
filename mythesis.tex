@@ -30,8 +30,8 @@
 % Choose the chapter(s) / files you want to work with
 
 %%% use this to compile all chapters
-%\def\files{Introduction,Theory,TheoryVortex,Dias,GLcode,refs}
-\def\files{Introduction,TheoryVortex,GLcode,GLconclusion,Theory,DiasCode,Dias,DiasConclusion,refs}
+%\def\files{Introduction,Theory,TheoryVortex,Dias,refs}
+\def\files{Introduction,TheoryVortex,Theory,DiasCode,Dias,DiasConclusion,refs}
 %%% use this to work with only one chapter
 % \def\files{ch2}
 
@@ -69,12 +69,10 @@
 \MakeThesisPrologue % includes table of contents
 % \tableofcontents
 
-\def\files{Introduction,TheoryVortex,GLcode,GLconclusion,Theory,DiasCode,Dias,DiasConclusion,refs}
+\def\files{Introduction,TheoryVortex,Theory,DiasCode,Dias,DiasConclusion,refs}
 
 \include{Introduction}		% file with Chapter 1 contents
 \include{TheoryVortex}		% file with references
-\include{GLcode}
-\include{GLconclusion}
 \include{Theory}
 \include{DiasCode}
 \include{Dias}
