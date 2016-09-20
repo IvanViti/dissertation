@@ -1,6 +1,26 @@
 \chapter{Geometric Vortex Pinning}
 \label{theoryvortex}
 
+\section{London Superconductivity}
+Superconductivity was first explained throught he light of Maxwell's equations. In 1935, Fritz and Heinz London used their equations to explain the Meissner effect. these can be derived from Ampere's law:
+\begin{eqnarray}
+\nabla \times \overrightarrow B  = \mu_0 \overrightarrow J,
+\label{Ampere}
+\end{eqnarray}
+where $\overrightarrow B$ is the magnetic field, $\mu_0$ is the permeability of free space, and $\overrightarrow J$ is the current. We then use the vector identity
+
+\begin{eqnarray}
+\nabla \times \nabla \times \overrightarrow A  = -\nabla^2 \overrightarrow A,
+\label{stokes}
+\end{eqnarray}
+to get
+\begin{eqnarray}
+\nabla^2 B = \frac{B}{\lambda_p^2},
+\label{penetration}
+\end{eqnarray}
+
+where $\lambda_p$ is the penetration depth. While these equations were good at describing the macroscopic properties of superconductors, better theories such as the Langevin system had to be derived to describe vortices. 
+
 \section{Langevin system for vortices}
 The Langevin system for vortices is a relatively simple place to start. It keeps only vortex degrees of freedom and foregoes all other perturbations of the complex order parameter. As long as the pinning centers are not too dense and vortices stay further appart than their coherence length, this provides a fairly accurate system. Looking at the equation of motion for this overdamped system, one can get an idea of the forces involved:
 \begin{eqnarray}
@@ -30,29 +50,11 @@ where $F_n$ is the free energy, $\alpha$ and $\beta$ are system constants which 
 \label{GLEQ3}
 \end{eqnarray}
 where $j$ is the current and $Re$ is the real part. Equation ~\ref{GLEQ1} can be thought of in two parts. The first part ($\alpha \psi + \beta |\psi|^2 \psi $) is just the component relating to the superconductor, without supercurrent. Above the superconducting temperature, only $\psi = 0$ solves the equation. Below the superconducting temperature we have $|\psi|^2 = -\frac {\alpha} {beta}$, which is reminiscent of a quantum observable. The second half of ~\ref{GLEQ1} is basically a modified version of the Schrodinger time-independent equation, but with a magnetic potential. ~\ref{GLEQ2} is Ampere's law. ~\ref{GLEQ3} is also similar to a quantum observable with $ -i \hbar \nabla - 2e \overrightarrow A$ as the momentum operator in the presence of a magnetic field. The Ginzburg-Landau equations can be related to the microscopic Bardeen-Cooper-Schrieffer theory ~\cite{Sadovskyy14}. 
-%%figure out where this goes
-This effect is a consequence of London's equations, which comes from Ampere's law:
-\begin{eqnarray}
-\nabla \times \overrightarrow B  = \mu_0 \overrightarrow J,
-\label{Ampere}
-\end{eqnarray}
-where $\overrightarrow B$ is the magnetic field, $\mu_0$ is the permeability of free space, and $\overrightarrow J$ is the current. We then use the vector identity
-
-\begin{eqnarray}
-\nabla \times \nabla \times \overrightarrow A  = -\nabla^2 \overrightarrow A,
-\label{stokes}
-\end{eqnarray}
-to get
-\begin{eqnarray}
-\nabla^2 B = \frac{B}{\lambda^2},
-\label{penetration}
-\end{eqnarray}
-
-where $\lambda$ is the penetration depth.
-%%down to here
 
 \section{Large $\lambda$ Limit}
-In high temperature superconductors, the penetration length $\lambda$ is typically much larger than the coherence length $\xi$. One consequence of this is that at length scales smaller than $\lambda$, the magnetic field is basically constant. The coherence length comes from the fermi velocity for the material and the energy gap between conducting and superconducting states~\cite{Kittel96}.  $\xi$ describes the length over which the superconducting electron density can change. This is also the size to which a cooper pair can spread. Another place it comes in is determining the size of the core of the vortex. 
+The surface of a superconducting field is a rich interplay between the coherence length $\xi = \sqrt{\hbar^2/4ma_o}$ and the magnetic penetration length $\lambda = \sqrt{mc^2 / 8\pi e^2 \psi^2_0}$, where $\psi = \sqrt{a_0/b_0}$ is the equilibrium value of the order parameter in the absence of an electromagnetic field. The ratio $\chi = \lambda / \xi$ is called the GL parameter. 
+
+ In high temperature superconductors, the penetration length $\lambda$ is typically much larger than the coherence length $\xi$. One consequence of this is that at length scales smaller than $\lambda$, the magnetic field is basically constant. The coherence length comes from the fermi velocity for the material and the energy gap between conducting and superconducting states~\cite{Kittel96}.  $\xi$ describes the length over which the superconducting electron density can change. This is also the size to which a cooper pair can spread. Another place it comes in is determining the size of the core of the vortex. 
 
 \section{Phenomenological Vortex Interactions}
 
