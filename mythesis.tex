@@ -31,7 +31,7 @@
 
 %%% use this to compile all chapters
 %\def\files{Introduction,Theory,TheoryVortex,Dias,refs}
-\def\files{Introduction,TheoryVortex,Theory,DiasCode,Dias,DiasConclusion,refs}
+\def\files{Introduction,TheoryVortex,Theory,refs}
 %%% use this to work with only one chapter
 % \def\files{ch2}
 
@@ -51,10 +51,11 @@
 \director{Andreas Glatz}
 
 \begin{abstract}
-	With the ever-increasing availability of computing power, namely from Graphics Processing Units (GPUs), comes the responsibility to simulate more complicated systems. Complex functions such as the Ginzburg-Landau function can not be studied analytically for mesoscopic phenomena. Similarly, a thorough understanding of variable range hopping in electrons requires a Markov-Chain Monte-Carlo algorithm. With this in mind we computationally study two cases of condensed matter physics, thermoelectrics and superconductor-bound vortices.
-	Here, We develop and implement a novel algorithm for simulation of variable-range-hopping of electrons in a nanosolid. We exploit the similarities between granule hopping and electrons in a coulomb glass.  We also created an ad-hoc cluster in order to run these and other simulations. We benchmark this code using well studied Coulomb Glass  theories, then make predictions on what Seebeck coefficients will be in various conductor-semiconductor combinations.
-	Vortex-vortex interactions and vortex-inclusion interactions are not very well understood analytically. The mathematics becomes near-impossible when taken to mesoscopic scales. Applied temperature, magnetic field, or currents only serve to complicate the system. Yet these are all factors that need to be well understood before serious applications can take place. Here we report two basic systems, The effect of vortex-inclusion matching on the effective resistance, and a novel funnel system for slowing the vortices. We describe how matching the number of inclusions to the number of vortices can help reduce the amount of vortex-induced resistance. We also describe how an aperture-type system can help to slow down vortices as they are travelling through the system draining energy. 
+There are many condensed matter problems which are too complicated for analytical solutions. Complex functions such as the Ginzburg-Landau equation for superconductors can not be studied analytically for mesoscopic phenomena. Similarly, a thorough understanding of variable range hopping in electrons requires a new Monte-Carlo algorithm. With this in mind we computationally study two cases of condensed matter physics, pinning vortices in superconductors and thermoelectrics in nano-solids.
 
+        Vortex-vortex interactions and vortex-inclusion interactions are not very well understood analytically. The analytical calculations become near-impossible when taken to mesoscopic scales. Applied temperature, magnetic field, or currents only serve to complicate the system. Yet these are all factors that need to be well understood before large scale applications can be implemented. Here we report two basic systems, The effect of vortex-inclusion matching on the effective resistance, and a novel funnel system for slowing the vortices. We describe how matching the number of inclusions to the number of vortices can help reduce the amount of vortex-induced resistance. We also describe how an aperture-type system can help to slow down or pin vortices to reduce energy dissipation.
+
+	A novel algorithm for simulation of variable-range-hopping of electrons in nanosolids was designed and implemented. We exploit the similarities between granule hopping and electrons in a Coulomb glass. We benchmark this code using well studied Coulomb Glass theories, then make predictions on what Seebeck coefficients will be in various conductor-semiconductor combinations.
 
 
 \end{abstract}
@@ -62,7 +63,7 @@
 \begin{acknowledgments}
   I would like to thank Andreas Glatz for his constant guidance. I would also like to thank the computer science department for allowing us to use their Gaea cluster for our simulations, as well as the Physics department for housing our Thoon cluster. Ivan Sadovsky was incredibly helpful in getting started with GL.
   
-  This work is supported by a grant from the DoE. The Rhoten-Smith fellowship and the Great Journeys fellowship also provided much needed funding. 
+  The superconduction pinning portion of this work was supported through the <SciDAC ack>. The Rhoten-Smith fellowship and the Great Journeys fellowship provided the funding for the artificial nanosolid thermoelectrics research. 
 \end{acknowledgments}
 
 % comment this to suppress prologue
@@ -74,9 +75,6 @@
 \include{Introduction}		% file with Chapter 1 contents
 \include{TheoryVortex}		% file with references
 \include{Theory}
-\include{DiasCode}
-\include{Dias}
-\include{DiasConclusion}
 \include{refs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%  Appendices

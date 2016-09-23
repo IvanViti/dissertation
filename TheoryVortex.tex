@@ -51,6 +51,19 @@ where $F_n$ is the free energy, $\alpha$ and $\beta$ are system constants which 
 \end{eqnarray}
 where $j$ is the current and $Re$ is the real part. Equation ~\ref{GLEQ1} can be thought of in two parts. The first part ($\alpha \psi + \beta |\psi|^2 \psi $) is just the component relating to the superconductor, without supercurrent. Above the superconducting temperature, only $\psi = 0$ solves the equation. Below the superconducting temperature we have $|\psi|^2 = -\frac {\alpha} {beta}$, which is reminiscent of a quantum observable. The second half of ~\ref{GLEQ1} is basically a modified version of the Schrodinger time-independent equation, but with a magnetic potential. ~\ref{GLEQ2} is Ampere's law. ~\ref{GLEQ3} is also similar to a quantum observable with $ -i \hbar \nabla - 2e \overrightarrow A$ as the momentum operator in the presence of a magnetic field. The Ginzburg-Landau equations can be related to the microscopic Bardeen-Cooper-Schrieffer theory ~\cite{Sadovskyy14}. 
 
+The SciDAC project revolves around a program called {\sc GLGPU} which models the important parameter function $\psi$ using the time dependent Ginzburg Landau equations:
+\begin{eqnarray}
+\Gamma (\partial_t +i \frac{2e}{\hbar}\mu)\psi = a_0 \epsilon (r) \psi - b |\psi|^2 \psi + \frac{1}{4m} (\hbar \Delta + \frac{2e}{ic} A)^2 \psi + \xi (r,t)
+\label{TDGL1}
+\end{eqnarray}
+and
+\begin{eqnarray}
+\kappa^2 \nabla \times (\nabla \times A) = J_n + J_s + I,
+\label{TDGL2}
+\end{eqnarray}
+where $u = \Gamma/(a_0 t_0)$, $t_0$ is the unit of time, and $J$ is the total current density. This program models a discretized system which is initialized with a parameter function and then each timestep is defined by following the TDGL equation. Using this program, we studied many situations such as grids of non-superconducting inclusions, funnels, vortex ratchets, and critical currents.
+
+
 \section{Large $\lambda$ Limit}
 The surface of a superconducting field is a rich interplay between the coherence length $\xi = \sqrt{\hbar^2/4ma_o}$ and the magnetic penetration length $\lambda = \sqrt{mc^2 / 8\pi e^2 \psi^2_0}$, where $\psi = \sqrt{a_0/b_0}$ is the equilibrium value of the order parameter in the absence of an electromagnetic field. The ratio $\chi = \lambda / \xi$ is called the GL parameter. 
 
