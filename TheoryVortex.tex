@@ -76,16 +76,16 @@ The surface of a superconducting field is a rich interplay between the coherence
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{sameVortex.png}
-\caption{The right hand rule tells us which direction the currents will swirl around a vortex pointing into the page. Then using Lorentz's law  at the second vortex, we can see that the second vortex will be pushed away. The same thing is happening from the current of the second vortex onto the first.}
+\includegraphics[scale=.50]{sameDirection.png}
+\caption{The right hand rule tells us which direction the currents will swirl around a vortex pointing into the page. Then using Lorentz's law  at the second vortex, we can see that the second vortex will be pushed away. The same thing is happening from the current of the second vortex onto the first. Another way to see it is that in between the two vortices, the induced currents are cancelled out. Meanwhile on the outside of the vortices, the induced current adds up. The vortices will then feel a force which pushes them away from each other.}
 \label{sameV}
 \end{center}
 \end{figure}
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{oppositeVortex.png}
-\caption{The right hand rule tells us which direction the currents will swirl around a vortex pointing into the page. Then using Lorentz's law  at the second vortex, we can see that the second vortex will be pulled in this time. The same thing is happening from the current of the second vortex onto the first (although the second current flows in the opposite direction).}
+\includegraphics[scale=.50]{oppositeDirection.png}
+\caption{The right hand rule tells us which direction the currents will swirl around a vortex pointing into the page. Then using Lorentz's law  at the second vortex, we can see that the second vortex will be pulled in this time. The same thing is happening from the current of the second vortex onto the first (although the second current flows in the opposite direction). In this case, the induced current between the vortices adds up while the current on the outsides cancels out. This makes the vortices move towards each other.}
 \label{diffV}
 \end{center}
 \end{figure}
@@ -98,19 +98,12 @@ The substrate is not always superconducting. It is also possible to embed non-su
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{geometryInside.png}
-\caption{Vortices (pink) will tend to get stuck inside inclusions (blue). That is because the supercurrent will travel faster outside of the inclusion, diminishing the amount of supercurrent inside. The vortex will therefore feel a force away from the boundary with the stronger superconductor.}
-\label{geometryInside}
+\includegraphics[scale=.50]{forces.png}
+\caption{Vortices will be forced in many directions. These can be from the general current, from each other, or from regions of higher $T_c$. Looking at the equation for the order parameter free energy, one can see that it takes more energy to have a vortex in a region of higher $T_c$. The vortex will therefore feel a force away from the boundary with the stronger superconductor (darker red).}
+\label{forces}
 \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=.50]{repulsion.png}
-\caption{Once a vortex is stuck inside an inclusion, it will repel any other vortices which come near it.}
-\label{repulsion}
-\end{center}
-\end{figure}
 
 \section{Relevant Vortex studies}
 
@@ -178,7 +171,7 @@ Being such a general code, there were many possible areas of study regarding thi
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{JvV.png}
+\includegraphics[scale=.50]{Hysteresis.png}
 \caption{ Overlapped are the current vs voltage for two systems, one with the current ramped up and one with the current ramped down. Upper one is the current being ramped down, while the lower one is the current ramped up.}
 \label{hysteresis}
 \end{center}
@@ -203,7 +196,7 @@ The same way that energy is gained when a vortex goes into a lower superconducti
 The magnetic field was kept such that the number of vortices filled 50\% to 80\% of the substrate. It was pointed into the board such that the current pushed the vortices into the funnel. The current was started at an amount large enough to guarantee vortex movement, even if it also meant that vortices went through the walls at first. The current was then slowly relaxed in enough timesteps to make sure that each configuration had enough time to stabilize. The number of current configurations had to balanced against practicallity. Ideally, we would use an infinite number of current configurations, but that would take an infinite ammount of time to simulate. Instead we tried to keep the simulation times at less than 24 hours.
 
 \subsection{Analysis}
-In general, the simulations performed as expected. The smaller the aperture, the better a system can hold on to vortices. This is up to a point which where even 1 vortex can no longer slip through. Steeper angles also improved the jamming performance of each system. The dependence did not seem to be linear in y-position of the funnel, or in angle. When looking at the magnetic dependence of the critical current, it is clear that more vortices increase the critical current of the system.
+In general, the simulations performed as expected. The smaller the aperture, the better a system can hold on to vortices. This is up to a point which where even 1 vortex can no longer slip through. Steeper angles also improved the jamming performance of each system. The dependence did not seem to be linear in y-position of the funnel, or in angle. When looking at the magnetic dependence of the critical current, it is clear that more vortices increase the critical current of the system. In the case of funnel studies, as the angle increases, so does the density of the vortices in the main funnel. That is because the magnetic field was set the same for all runs. As the funnel increases, it takes up more of the main funnel. Still, one can see that the sharper angle has more of a pinning effect even controlling for this effect using the critical current dependence on the magnetic field. 
 \begin{figure}[htbp]
 \begin{center}
 \includegraphics[scale=.50]{ratchetNoAngle.png}
@@ -214,8 +207,8 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{flatScan.png}
-\caption{ 50 values of aperture were run in this simulation. The resulting current was analyzed to find the critical current . As the aperture is increased, the ability to hold the vortices still is diminished. }
+\includegraphics[scale=.50]{flatAperture.png}
+\caption{ 50 values of aperture were run in this simulation of a flat system. The resulting current was analyzed to find the critical current . As the aperture is increased, the ability to hold the vortices still is diminished. }
 \label{flatScan}
 \end{center}
 \end{figure}
@@ -231,7 +224,7 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{normalXscan.png}
+\includegraphics[scale=.50]{funnelX.png}
 \caption{ 50 values of aperture were run in this simulation. The resulting current was analyzed to find the critical current . As the aperture is increased, the ability to hold the vortices still is diminished. }
 \label{normalXscan}
 \end{center}
@@ -247,7 +240,7 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{normalYscan.png}
+\includegraphics[scale=.50]{funnelY.png}
 \caption{ 50 values of aperture were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current . As the angle of the slope is increased, the vortices were more easily jammed. }
 \label{normalYscan}
 \end{center}
@@ -282,7 +275,7 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{oneSidedAperture.png}
+\includegraphics[scale=.50]{oneSideX.png}
 \caption{ 50 values of aperture were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current . As the aperture size is increased, the vortices are less restrained. }
 \label{normalYscan}
 \end{center}
@@ -298,41 +291,16 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{oneside-angle-Scan.png}
+\includegraphics[scale=.50]{oneSideY.png}
 \caption{ 50 values of aperture were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current . As the one slope is increased, the jamming effect becomes more pronounced. }
 \label{normalYscan}
 \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=.50]{oneKinkDone.png}
-\caption{ The amplitude of the complex order parameter. in yellow is the background superconductor, In red is the superconductor wall, and the blue dots are the vortices. In green is the parameter of interest. In this case it is the length of the "turn" which is being varied.}
-\label{oneSidedY}
-\end{center}
-\end{figure}
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{kinkScan.png}
-\caption{ 50 values of the turn length were run in this simulation. The resulting current versus voltage information was analyzed to find the critical current .  }
-\label{normalYscan}
-\end{center}
-\end{figure}
-
-
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=.50]{AvR.png}
-\caption{ We can also study how the aperture size hampers vortex movement once they have already been depinned. This is a resistance plot of the constant y-position funnel. On the X axis is the size of the aperture, Y axis is the superconductive resistance. }
-\label{AvR}
-\end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-\begin{center}
-\includegraphics[scale=.50]{angleBz.png}
+\includegraphics[scale=.50]{2DAngleBz.png}
 \caption{ 50 values of the magnetic field angled system. The resulting current versus voltage information was analyzed to find the critical current .  }
 \label{angleBz}
 \end{center}
@@ -341,7 +309,7 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{emptyBz.png}
+\includegraphics[scale=.50]{emptyDiamondBz.png}
 \caption{ 50 values of the magnetic field were studied for the empty diamond system. The resulting current versus voltage information was analyzed to find the critical current .  }
 \label{emptyBz}
 \end{center}
@@ -349,7 +317,7 @@ In general, the simulations performed as expected. The smaller the aperture, the
 
 \begin{figure}[htbp]
 \begin{center}
-\includegraphics[scale=.50]{flatBz.png}
+\includegraphics[scale=.50]{2DFlatBz.png}
 \caption{ 50 values of the magnetic field were studied for the flat system. The resulting current versus voltage information was analyzed to find the critical current .  }
 \label{flatBz}
 \end{center}

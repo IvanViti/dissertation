@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.23)  23 SEP 2016 12:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.3.23)  26 SEP 2016 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -182,12 +182,6 @@ LaTeX Warning: Label `normalYscan' multiply defined.
 
 LaTeX Warning: Label `normalYscan' multiply defined.
 
-
-LaTeX Warning: Label `oneSidedY' multiply defined.
-
-
-LaTeX Warning: Label `normalYscan' multiply defined.
-
 ) (./Theory.aux
 
 LaTeX Warning: Label `firstMoment' multiply defined.
@@ -195,17 +189,21 @@ LaTeX Warning: Label `firstMoment' multiply defined.
 
 LaTeX Warning: Label `TvJ' multiply defined.
 
-) (./DiasCode.aux) (./Dias.aux) (./DiasConclusion.aux) (./refs.aux
+) (./refs.aux
 
 LaTeX Warning: Label `Kittel96' multiply defined.
 
 
 LaTeX Warning: Label `Glazman05' multiply defined.
 
-)
-No file app1.aux.
-No file app2.aux.
-)
+) (./app1.aux) (./app2.aux) (./app3.aux
+
+LaTeX Warning: Label `oneSidedY' multiply defined.
+
+
+LaTeX Warning: Label `normalYscan' multiply defined.
+
+))
 \openout1 = `mythesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
@@ -324,13 +322,13 @@ e
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 69.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 70.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 69.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
  [1
 
 ] [2
@@ -366,6 +364,15 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 \openout4 = `mythesis.lof'.
 
  [9]
+\th@output=\toks21
+
+No file mythesis.loa.
+\tf@loa=\write5
+\openout5 = `mythesis.loa'.
+
+[10
+
+]
 \openout2 = `Introduction.aux'.
 
  (./Introduction.tex
@@ -385,387 +392,251 @@ Chapter 2.
 
 ] [8] [9]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 54.
+(Font)              <14.4> on input line 67.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 54.
- [10] <sameVortex.png, id=78, 374.90062pt x 173.14688pt>
-File: sameVortex.png Graphic file (type png)
+(Font)              <7> on input line 67.
+ [10] <sameDirection.png, id=81, 374.90062pt x 173.14688pt>
+File: sameDirection.png Graphic file (type png)
 
-<use sameVortex.png>
-Package pdftex.def Info: sameVortex.png used on input line 66.
+<use sameDirection.png>
+Package pdftex.def Info: sameDirection.png used on input line 79.
 (pdftex.def)             Requested size: 187.44984pt x 86.57323pt.
- <oppositeVortex.png, id=80, 374.90062pt x 173.14688pt>
-File: oppositeVortex.png Graphic file (type png)
 
-<use oppositeVortex.png>
-Package pdftex.def Info: oppositeVortex.png used on input line 74.
+<oppositeDirection.png, id=83, 374.90062pt x 173.14688pt>
+File: oppositeDirection.png Graphic file (type png)
+
+<use oppositeDirection.png>
+Package pdftex.def Info: oppositeDirection.png used on input line 87.
 (pdftex.def)             Requested size: 187.44984pt x 86.57323pt.
- [11 <./sameVortex.png>]
-Overfull \hbox (21.66858pt too wide) in paragraph at lines 84--85
+ [11] [12 <./sameDirection.png> <./oppositeDirection.png>]
+Overfull \hbox (21.66858pt too wide) in paragraph at lines 97--98
 []\OT1/cmr/m/n/12 The sub-strate is not al-ways su-per-con-duct-ing. It is also
  pos-si-ble to em-bed non-superconducting
  []
 
-[12 <./oppositeVortex.png>]
-<geometryInside.png, id=88, 771.63281pt x 572.89032pt>
-File: geometryInside.png Graphic file (type png)
-
-<use geometryInside.png>
-Package pdftex.def Info: geometryInside.png used on input line 88.
+<forces.png, id=92, 771.63281pt x 572.89032pt>
+File: forces.png Graphic file (type png)
+ <use forces.png>
+Package pdftex.def Info: forces.png used on input line 101.
 (pdftex.def)             Requested size: 385.81546pt x 286.44446pt.
- <repulsion.png, id=89, 771.63281pt x 572.89032pt>
-File: repulsion.png Graphic file (type png)
-
-<use repulsion.png>
-Package pdftex.def Info: repulsion.png used on input line 96.
-(pdftex.def)             Requested size: 385.81546pt x 286.44446pt.
- [13 <./geometryInside.png>] [14 <./repulsion.png>] [15]
-[16] [17] [18] [19]
+ [13] [14 <./forces.png>] [15] [16] [17] [18] [19]
 ! Undefined control sequence.
-l.157 \lable
+l.163 \lable
             {}
 ? 
-[20] <JvV.png, id=118, 1204.5pt x 903.375pt>
-File: JvV.png Graphic file (type png)
- <use JvV.png>
-Package pdftex.def Info: JvV.png used on input line 168.
-(pdftex.def)             Requested size: 602.24854pt x 451.6864pt.
+[20] <Hysteresis.png, id=121, 578.16pt x 433.62pt>
+File: Hysteresis.png Graphic file (type png)
+ <use Hysteresis.png>
+Package pdftex.def Info: Hysteresis.png used on input line 174.
+(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-Overfull \hbox (132.49352pt too wide) in paragraph at lines 168--169
- [] 
- []
-
-[21] [22 <./JvV.png>] <HDFinal.png, id=125, 578.16pt x 433.62pt>
+[21] [22 <./Hysteresis.png>] <HDFinal.png, id=128, 578.16pt x 433.62pt>
 File: HDFinal.png Graphic file (type png)
 
 <use HDFinal.png>
-Package pdftex.def Info: HDFinal.png used on input line 180.
+Package pdftex.def Info: HDFinal.png used on input line 186.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- [23] [24 <./HDFinal.png>]
+ [23 <./HDFinal.png>]
 <ratchetNoAngle.png, id=132, 256.96pt x 256.96pt>
 File: ratchetNoAngle.png Graphic file (type png)
  <use ratchetNoAngle.png>
-Package pdftex.def Info: ratchetNoAngle.png used on input line 196.
+Package pdftex.def Info: ratchetNoAngle.png used on input line 202.
 (pdftex.def)             Requested size: 128.47968pt x 128.47968pt.
 
-<flatScan.png, id=133, 578.16pt x 433.62pt>
-File: flatScan.png Graphic file (type png)
- <use flatScan.png>
-Package pdftex.def Info: flatScan.png used on input line 204.
+[24] <flatAperture.png, id=136, 578.16pt x 433.62pt>
+File: flatAperture.png Graphic file (type png)
+ <use flatAperture.png>
+Package pdftex.def Info: flatAperture.png used on input line 210.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<normalX.png, id=134, 192.72pt x 192.72pt>
+<normalX.png, id=137, 192.72pt x 192.72pt>
 File: normalX.png Graphic file (type png)
  <use normalX.png>
-Package pdftex.def Info: normalX.png used on input line 213.
+Package pdftex.def Info: normalX.png used on input line 219.
 (pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
 
-<normalXscan.png, id=135, 578.16pt x 433.62pt>
-File: normalXscan.png Graphic file (type png)
- <use normalXscan.png>
-Package pdftex.def Info: normalXscan.png used on input line 221.
+<funnelX.png, id=138, 578.16pt x 433.62pt>
+File: funnelX.png Graphic file (type png)
+ <use funnelX.png>
+Package pdftex.def Info: funnelX.png used on input line 227.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<normalY.png, id=136, 192.72pt x 192.72pt>
+<normalY.png, id=139, 192.72pt x 192.72pt>
 File: normalY.png Graphic file (type png)
  <use normalY.png>
-Package pdftex.def Info: normalY.png used on input line 229.
+Package pdftex.def Info: normalY.png used on input line 235.
 (pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
 
-<normalYscan.png, id=137, 578.16pt x 433.62pt>
-File: normalYscan.png Graphic file (type png)
- <use normalYscan.png>
-Package pdftex.def Info: normalYscan.png used on input line 237.
+<funnelY.png, id=140, 578.16pt x 433.62pt>
+File: funnelY.png Graphic file (type png)
+ <use funnelY.png>
+Package pdftex.def Info: funnelY.png used on input line 243.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<normalAngle.png, id=138, 192.72pt x 192.72pt>
+<normalAngle.png, id=141, 192.72pt x 192.72pt>
 File: normalAngle.png Graphic file (type png)
  <use normalAngle.png>
-Package pdftex.def Info: normalAngle.png used on input line 246.
+Package pdftex.def Info: normalAngle.png used on input line 252.
 (pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
 
-<constantAngle.png, id=139, 578.16pt x 433.62pt>
+<constantAngle.png, id=142, 578.16pt x 433.62pt>
 File: constantAngle.png Graphic file (type png)
  <use constantAngle.png>
-Package pdftex.def Info: constantAngle.png used on input line 254.
+Package pdftex.def Info: constantAngle.png used on input line 260.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<oneSidedDone.png, id=140, 192.72pt x 192.72pt>
+<oneSidedDone.png, id=143, 192.72pt x 192.72pt>
 File: oneSidedDone.png Graphic file (type png)
  <use oneSidedDone.png>
-Package pdftex.def Info: oneSidedDone.png used on input line 263.
+Package pdftex.def Info: oneSidedDone.png used on input line 269.
 (pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
 
-<oneSidedAperture.png, id=141, 578.16pt x 433.62pt>
-File: oneSidedAperture.png Graphic file (type png)
- <use oneSidedAperture.png>
-Package pdftex.def Info: oneSidedAperture.png used on input line 272.
+<oneSideX.png, id=144, 578.16pt x 433.62pt>
+File: oneSideX.png Graphic file (type png)
+ <use oneSideX.png>
+Package pdftex.def Info: oneSideX.png used on input line 278.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<oneSidedY.png, id=142, 192.72pt x 192.72pt>
+<oneSidedY.png, id=145, 192.72pt x 192.72pt>
 File: oneSidedY.png Graphic file (type png)
  <use oneSidedY.png>
-Package pdftex.def Info: oneSidedY.png used on input line 280.
+Package pdftex.def Info: oneSidedY.png used on input line 286.
 (pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
 
-<oneside-angle-Scan.png, id=143, 578.16pt x 433.62pt>
-File: oneside-angle-Scan.png Graphic file (type png)
-
-<use oneside-angle-Scan.png>
-Package pdftex.def Info: oneside-angle-Scan.png used on input line 288.
-(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- <oneKinkDone.png, id=144, 192.72pt x 192.72pt>
-File: oneKinkDone.png Graphic file (type png)
-
-<use oneKinkDone.png>
-Package pdftex.def Info: oneKinkDone.png used on input line 296.
-(pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
- <kinkScan.png, id=145, 578.16pt x 433.62pt>
-File: kinkScan.png Graphic file (type png)
-
-<use kinkScan.png>
-Package pdftex.def Info: kinkScan.png used on input line 304.
-(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- <AvR.png, id=146, 578.16pt x 433.62pt>
-File: AvR.png Graphic file (type png)
- <use AvR.png>
-Package pdftex.def Info: AvR.png used on input line 314.
+<oneSideY.png, id=146, 578.16pt x 433.62pt>
+File: oneSideY.png Graphic file (type png)
+ <use oneSideY.png>
+Package pdftex.def Info: oneSideY.png used on input line 294.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<angleBz.png, id=147, 578.16pt x 433.62pt>
-File: angleBz.png Graphic file (type png)
- <use angleBz.png>
-Package pdftex.def Info: angleBz.png used on input line 322.
+<2DAngleBz.png, id=147, 578.16pt x 433.62pt>
+File: 2DAngleBz.png Graphic file (type png)
+ <use 2DAngleBz.png>
+Package pdftex.def Info: 2DAngleBz.png used on input line 303.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<emptyBz.png, id=148, 578.16pt x 433.62pt>
-File: emptyBz.png Graphic file (type png)
- <use emptyBz.png>
-Package pdftex.def Info: emptyBz.png used on input line 331.
+<emptyDiamondBz.png, id=148, 578.16pt x 433.62pt>
+File: emptyDiamondBz.png Graphic file (type png)
+ <use emptyDiamondBz.png>
+Package pdftex.def Info: emptyDiamondBz.png used on input line 312.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<flatBz.png, id=149, 578.16pt x 433.62pt>
-File: flatBz.png Graphic file (type png)
- <use flatBz.png>
-Package pdftex.def Info: flatBz.png used on input line 339.
+<2DFlatBz.png, id=149, 578.16pt x 433.62pt>
+File: 2DFlatBz.png Graphic file (type png)
+ <use 2DFlatBz.png>
+Package pdftex.def Info: 2DFlatBz.png used on input line 320.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-
-! LaTeX Error: Too many unprocessed floats.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.345 \begin{figure}[htbp]
-                          
-? 
-! Undefined control sequence.
-\latex@xfloat ...vf \fi \global \setbox \@currbox 
-                                                  \color@vbox \normalcolor \...
-l.345 \begin{figure}[htbp]
-                          
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   \color@vbox 
-l.345 \begin{figure}[htbp]
-                          
-? 
 <oneSideBz.png, id=150, 578.16pt x 433.62pt>
 File: oneSideBz.png Graphic file (type png)
  <use oneSideBz.png>
-Package pdftex.def Info: oneSideBz.png used on input line 347.
+Package pdftex.def Info: oneSideBz.png used on input line 328.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-
-! Undefined control sequence.
-\@largefloatcheck ->\ifdim \ht \@currbox 
-                                         >\textheight \@tempdima -\textheigh...
-l.351 \end{figure}
-                  
-? 
-! Missing number, treated as zero.
-<to be read again> 
-                   >
-l.351 \end{figure}
-                  
-? 
-! Undefined control sequence.
-<argument> \@currbox 
-                     
-l.351 \end{figure}
-                  
-? 
-! Argument of \@xnext has an extra }.
-<inserted text> 
-                \par 
-l.351 \end{figure}
-                  
-? 
-Runaway argument?
-\@currbox \@currlist \ifnum \count \@currbox >\z@ \advance \@pageht \@pagedp \E
-TC.
-! Paragraph ended before \@xnext was complete.
-<to be read again> 
-                   \par 
-l.351 \end{figure}
-                  
-? 
-! Extra \else.
-\end@float ...pdima \penalty \@floatpenalty \else 
-                                                  \vadjust {\penalty -\@Miv ...
-l.351 \end{figure}
-                  
-? 
-! You can't use `\vadjust' in vertical mode.
-\end@float ...nalty \@floatpenalty \else \vadjust 
-                                                  {\penalty -\@Miv \vbox {}\...
-l.351 \end{figure}
-                  
-? 
-! Argument of \@xnext has an extra }.
-<inserted text> 
-                \par 
-l.351 \end{figure}
-                  
-? 
-Runaway argument?
-\@currbox \@currlist \ifnum \count \@currbox >\z@ \advance \@pageht \@pagedp \E
-TC.
-! Paragraph ended before \@xnext was complete.
-<to be read again> 
-                   \par 
-l.351 \end{figure}
-                  
-? 
-)
-Overfull \vbox (21.77678pt too high) has occurred while \output is active []
-
-
-[25] [26 <./ratchetNoAngle.png> <./flatScan.png>] [27 <./normalX.png> <./normal
-Xscan.png>] [28 <./normalY.png> <./normalYscan.png>] [29 <./normalAngle.png> <.
-/constantAngle.png>] [30 <./oneSidedDone.png> <./oneSidedAperture.png>]
-[31 <./oneSidedY.png> <./oneside-angle-Scan.png>] [32 <./oneKinkDone.png> <./ki
-nkScan.png>] [33 <./AvR.png> <./angleBz.png>] [34 <./emptyBz.png> <./flatBz.png
->]
-
-! LaTeX Error: Float(s) lost.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.75 \include{TheoryVortex}
-                           		% file with references
-? 
-! Extra \else.
-\@include ...ediate \closeout \@partaux \fi \else 
-                                                  \deadcycles \z@ \@nameuse ...
-l.75 \include{TheoryVortex}
-                           		% file with references
-? 
+ [25 <./ratchetNoAngle.png>] [26 <./flatAperture.png> <./normalX.png>] [27 <./f
+unnelX.png> <./normalY.png>] [28 <./funnelY.png> <./normalAngle.png>] [29 <./co
+nstantAngle.png> <./oneSidedDone.png>] [30 <./oneSideX.png> <./oneSidedY.png>] 
+[31 <./oneSideY.png> <./2DAngleBz.png>] [32 <./emptyDiamondBz.png> <./2DFlatBz.
+png>]) [33 <./oneSideBz.png>]
 \openout2 = `Theory.aux'.
 
-(./Theory.tex
+ (./Theory.tex
 Chapter 3.
 
-LaTeX Warning: Reference `piSquare' on page 35 undefined on input line 11.
+LaTeX Warning: Reference `piSquare' on page 34 undefined on input line 11.
 
-[35
+[34
 
 
 
 ]
 
-LaTeX Warning: Citation `Newmann99' on page 36 undefined on input line 16.
+LaTeX Warning: Citation `Newmann99' on page 35 undefined on input line 16.
 
-[36] [37] [38] [39]
+[35] [36] [37] [38]
 
-LaTeX Warning: Citation `Kirkengen09' on page 40 undefined on input line 70.
+LaTeX Warning: Citation `Kirkengen09' on page 39 undefined on input line 70.
 
-[40] [41] <veryCloseDos.png, id=214, 578.16pt x 433.62pt>
+[39] [40] <veryCloseDos.png, id=210, 578.16pt x 433.62pt>
 File: veryCloseDos.png Graphic file (type png)
 
 <use veryCloseDos.png>
 Package pdftex.def Info: veryCloseDos.png used on input line 86.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- <critDoS.png, id=215, 578.16pt x 433.62pt>
+ <critDoS.png, id=211, 578.16pt x 433.62pt>
 File: critDoS.png Graphic file (type png)
 
 <use critDoS.png>
 Package pdftex.def Info: critDoS.png used on input line 94.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- <splitDos.png, id=216, 578.16pt x 433.62pt>
+ <splitDos.png, id=212, 578.16pt x 433.62pt>
 File: splitDos.png Graphic file (type png)
 
 <use splitDos.png>
 Package pdftex.def Info: splitDos.png used on input line 103.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
- [42 <./veryCloseDos.png>] [43 <./critDoS.png> <./splitDos.png>] <MottvsES.png,
- id=223, 501.875pt x 410.53375pt>
+ [41 <./veryCloseDos.png>] [42 <./critDoS.png> <./splitDos.png>] <MottvsES.png,
+ id=219, 501.875pt x 410.53375pt>
 File: MottvsES.png Graphic file (type png)
  <use MottvsES.png>
 Package pdftex.def Info: MottvsES.png used on input line 125.
 (pdftex.def)             Requested size: 250.93687pt x 205.26637pt.
- [44 <./MottvsES.png>]
+ [43 <./MottvsES.png>]
 
-LaTeX Warning: Citation `Glatz09' on page 45 undefined on input line 136.
+LaTeX Warning: Citation `Glatz09' on page 44 undefined on input line 136.
 
-[45] <inelasticvselastic.png, id=232, 506.6428pt x 246.9225pt>
+[44] <inelasticvselastic.png, id=228, 506.6428pt x 246.9225pt>
 File: inelasticvselastic.png Graphic file (type png)
 
 <use inelasticvselastic.png>
 Package pdftex.def Info: inelasticvselastic.png used on input line 148.
 (pdftex.def)             Requested size: 253.32079pt x 123.46094pt.
- [46 <./inelasticvselastic.png>] [47] [48] [49]
-[50]
+ [45 <./inelasticvselastic.png>] [46] [47] [48]
+[49]
 Overfull \hbox (7.68164pt too wide) in paragraph at lines 203--246
 []$[]$ 
  []
 
-[51]
+[50]
 Overfull \vbox (279.81015pt too high) has occurred while \output is active []
 
 
-[52]
+[51]
 Overfull \hbox (10.82483pt too wide) in paragraph at lines 255--276
 []$[]$ 
  []
 
-[53] [54] [55] [56] [57] [58] [59]
-<temperature.png, id=281, 506.6428pt x 246.9225pt>
+[52] [53] [54] [55] [56] [57] [58]
+<temperature.png, id=277, 506.6428pt x 246.9225pt>
 File: temperature.png Graphic file (type png)
  <use temperature.png>
 Package pdftex.def Info: temperature.png used on input line 357.
 (pdftex.def)             Requested size: 253.32079pt x 123.46094pt.
 
-[60 <./temperature.png>] [61] [62] [63] [64]
-<TvRGreat.png, id=298, 578.16pt x 433.62pt>
-File: TvRGreat.png Graphic file (type png)
- <use TvRGreat.png>
-Package pdftex.def Info: TvRGreat.png used on input line 392.
+[59 <./temperature.png>] [60] [61] [62] [63]
+<TvR.png, id=294, 578.16pt x 433.62pt>
+File: TvR.png Graphic file (type png)
+ <use TvR.png>
+Package pdftex.def Info: TvR.png used on input line 392.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<VvJGreat.png, id=299, 578.16pt x 433.62pt>
-File: VvJGreat.png Graphic file (type png)
- <use VvJGreat.png>
-Package pdftex.def Info: VvJGreat.png used on input line 400.
+<VvJ.png, id=295, 578.16pt x 433.62pt>
+File: VvJ.png Graphic file (type png)
+ <use VvJ.png>
+Package pdftex.def Info: VvJ.png used on input line 400.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<JvsT.png, id=300, 578.16pt x 433.62pt>
-File: JvsT.png Graphic file (type png)
- <use JvsT.png>
-Package pdftex.def Info: JvsT.png used on input line 408.
+<jvt.png, id=296, 578.16pt x 433.62pt>
+File: jvt.png Graphic file (type png)
+ <use jvt.png>
+Package pdftex.def Info: jvt.png used on input line 408.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-<VoltageVsDipole.png, id=301, 578.16pt x 433.62pt>
-File: VoltageVsDipole.png Graphic file (type png)
- <use VoltageVsDipole.png>
-Package pdftex.def Info: VoltageVsDipole.png used on input line 416.
+<DvV.png, id=297, 578.16pt x 433.62pt>
+File: DvV.png Graphic file (type png)
+ <use DvV.png>
+Package pdftex.def Info: DvV.png used on input line 416.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-)
-[65] [66 <./TvRGreat.png> <./VvJGreat.png>] [67 <./JvsT.png> <./VoltageVsDipole
-.png>]
+) [64] [65 <./TvR.png> <./VvJ.png>] [66 <./jvt.png> <./DvV.png>]
 \openout2 = `refs.aux'.
 
  (./refs.tex
@@ -786,7 +657,7 @@ Overfull \hbox (112.32784pt too wide) in paragraph at lines 18--19
 ter.ac.uk/users/esqn/windsor04/docs/artuno-
  []
 
-[68
+[67
 
 
 
@@ -796,7 +667,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 ics" ,
  []
 
-[69]
+[68]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
@@ -806,7 +677,7 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [70]
+ [69]
 Missing character: There is no â in font cmr12!
 Missing character: There is no ˆ in font cmr12!
 Missing character: There is no ’ in font cmr12!
@@ -814,57 +685,95 @@ Missing character: There is no Å in font cmr12!
 Missing character: There is no ¡ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ‡ in font cmr12!
- [71]
+ [70]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [72]) [73] (./mythesis.aux (./Introduction.aux)
-(./TheoryVortex.aux) (./Theory.aux) (./refs.aux)
-No file app1.aux.
-No file app2.aux.
-)
+ [71]) [72]
+\openout2 = `app1.aux'.
+
+ (./app1.tex
+Appendix A.
+[73
+
+
+
+]) [74]
+\openout2 = `app2.aux'.
+
+ (./app2.tex
+Appendix B.
+[75
+
+
+
+] <breakdownBreakdown.png, id=336, 771.63281pt x 572.89032pt>
+File: breakdownBreakdown.png Graphic file (type png)
+
+<use breakdownBreakdown.png>
+Package pdftex.def Info: breakdownBreakdown.png used on input line 8.
+(pdftex.def)             Requested size: 385.81546pt x 286.44446pt.
+) [76 <./breakdownBreakdown.png>]
+\openout2 = `app3.aux'.
+
+ (./app3.tex
+Appendix C.
+[77
+
+
+
+] <oneKinkDone.png, id=344, 192.72pt x 192.72pt>
+File: oneKinkDone.png Graphic file (type png)
+ <use oneKinkDone.png>
+Package pdftex.def Info: oneKinkDone.png used on input line 8.
+(pdftex.def)             Requested size: 96.35976pt x 96.35976pt.
+
+<kinkScan.png, id=345, 578.16pt x 433.62pt>
+File: kinkScan.png Graphic file (type png)
+ <use kinkScan.png>
+Package pdftex.def Info: kinkScan.png used on input line 16.
+(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
+ [78 <./oneKinkDone.png>] <AvR.png, id=350, 578.16pt x 433.62pt>
+File: AvR.png Graphic file (type png)
+ <use AvR.png>
+Package pdftex.def Info: AvR.png used on input line 27.
+(pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
+) [79 <./kinkScan.png>] [80 <./AvR.png>] (./mythesis.aux (./Introduction.aux) (
+./TheoryVortex.aux) (./Theory.aux) (./refs.aux) (./app1.aux) (./app2.aux) (./ap
+p3.aux))
 
 LaTeX Warning: There were undefined references.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
- )
-(\end occurred when \ifx on line 351 was incomplete)
-(\end occurred when \ifnum on line 351 was incomplete)
-(\end occurred when \ifnum on line 351 was incomplete)
-(\end occurred when \ifnum on line 351 was incomplete)
-(\end occurred when \ifnum on line 351 was incomplete)
-(\end occurred when \ifnum on line 351 was incomplete)
-(\end occurred when \iftrue on line 75 was incomplete)
-(\end occurred when \ifnum on line 75 was incomplete) 
+ ) 
 Here is how much of TeX's memory you used:
- 3709 strings out of 495028
- 50419 string characters out of 6181497
- 123832 words of memory out of 5000000
+ 3720 strings out of 495028
+ 50361 string characters out of 6181497
+ 123875 words of memory out of 5000000
  6789 multiletter control sequences out of 15000+600000
  9840 words of font info for 38 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,22n,34p,2647b,293s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb>
-Output written on mythesis.pdf (84 pages, 1549552 bytes).
+ 37i,22n,34p,2647b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on mythesis.pdf (92 pages, 1894717 bytes).
 PDF statistics:
- 382 PDF objects out of 1000 (max. 8388607)
- 233 compressed objects within 3 object streams
+ 410 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  176 words of extra memory for PDF output out of 10000 (max. 10000000)
 
