@@ -7,56 +7,57 @@
 \contentsline {section}{\numberline {1.2}Dynamics In Artificial Solids}{2}
 \contentsline {section}{\numberline {1.3}Condensed Matter GPU simulations}{5}
 \contentsline {chapter}{\numberline {2}Geometric Vortex Pinning}{7}
-\contentsline {section}{\numberline {2.1}London Superconductivity}{7}
-\contentsline {section}{\numberline {2.2}Langevin system for vortices}{8}
-\contentsline {section}{\numberline {2.3}The Ginzburg-Landau Model for Superconductivity}{9}
-\contentsline {section}{\numberline {2.4}Large $\lambda $ Limit}{10}
-\contentsline {section}{\numberline {2.5}Phenomenological Vortex Interactions}{11}
-\contentsline {subsection}{\numberline {2.5.1}Vortex-Vortex Interactions}{11}
-\contentsline {subsection}{\numberline {2.5.2}Vortex-Defect Interactions}{13}
-\contentsline {subsection}{\numberline {2.5.3}Vortex-Wall Interactions}{13}
-\contentsline {section}{\numberline {2.6}Relevant Vortex studies}{15}
-\contentsline {section}{\numberline {2.7}Vortex Matching and $\delta T_c$ Pinning}{15}
-\contentsline {section}{\numberline {2.8}Vortex Jamming and Geometric Pinning}{17}
-\contentsline {section}{\numberline {2.9}GLGPU overview}{19}
-\contentsline {subsection}{\numberline {2.9.1}stable GLGPU system}{20}
-\contentsline {subsection}{\numberline {2.9.2}Boundary conditions}{20}
-\contentsline {section}{\numberline {2.10}Results}{21}
-\contentsline {subsection}{\numberline {2.10.1}Grids}{22}
-\contentsline {section}{\numberline {2.11}Funnels}{24}
-\contentsline {subsection}{\numberline {2.11.1}Description}{24}
-\contentsline {subsection}{\numberline {2.11.2}Analysis}{25}
-\contentsline {chapter}{\numberline {3}Variable Range Hopping}{34}
-\contentsline {section}{\numberline {3.1}Overview}{34}
-\contentsline {section}{\numberline {3.2}Monte Carlo methods}{34}
-\contentsline {subsection}{\numberline {3.2.1}Estimating $\pi $}{35}
-\contentsline {subsection}{\numberline {3.2.2}Metropolis method}{35}
-\contentsline {subsection}{\numberline {3.2.3}Ising problem}{36}
-\contentsline {subsection}{\numberline {3.2.4}Conditions}{37}
-\contentsline {section}{\numberline {3.3}Coulomb Glass}{38}
-\contentsline {subsection}{\numberline {3.3.1}Density of States in a Coulomb Glass}{40}
-\contentsline {subsection}{\numberline {3.3.2}Comparing Mott VRH against Effros-Shklovskii VRH}{41}
-\contentsline {section}{\numberline {3.4}Artificial Nanosolids}{44}
-\contentsline {subsection}{\numberline {3.4.1}Inelastic vs. Elastic tunneling}{45}
-\contentsline {subsection}{\numberline {3.4.2}Coulomb Glass vs Artificial Nanosolids}{45}
-\contentsline {section}{\numberline {3.5}Thermoelectrics}{46}
-\contentsline {section}{\numberline {3.6}{\sc dias}}{47}
-\contentsline {subsection}{\numberline {3.6.1}Algorithm Parameters and Choices}{47}
-\contentsline {subsection}{\numberline {3.6.2}Algorithmic Strategy}{49}
-\contentsline {subsection}{\numberline {3.6.3}GPU Algorithms}{50}
-\contentsline {subsection}{\numberline {3.6.4}Jump Probability}{53}
-\contentsline {subsection}{\numberline {3.6.5}Optimizations}{55}
-\contentsline {subsection}{\numberline {3.6.6}The Lattice}{56}
-\contentsline {subsection}{\numberline {3.6.7}Continuous Time}{56}
-\contentsline {subsection}{\numberline {3.6.8}Dielectric Constant}{57}
-\contentsline {subsection}{\numberline {3.6.9}Distance-substrate correlation}{57}
-\contentsline {subsection}{\numberline {3.6.10}Temperature}{58}
-\contentsline {subsection}{\numberline {3.6.11}Density of States in {\sc dias}}{60}
-\contentsline {subsection}{\numberline {3.6.12}Thoon Cluster and Computational Resources}{61}
-\contentsline {section}{\numberline {3.7}Results}{62}
-\contentsline {subsection}{\numberline {3.7.1}Algorithmic Benchmarking}{62}
-\contentsline {subsection}{\numberline {3.7.2}Algorithmic Benchmarking}{63}
-\contentsline {subsection}{\numberline {3.7.3}Fitting and Prediction}{64}
-\contentsline {chapter}{References}{67}
-\contentsline {chapter}{Appendices}{73}
+\contentsline {section}{\numberline {2.1}Superconductor overview}{7}
+\contentsline {section}{\numberline {2.2}London Superconductivity}{8}
+\contentsline {section}{\numberline {2.3}Langevin Equation for Vortex Dynamics}{9}
+\contentsline {section}{\numberline {2.4}The Ginzburg-Landau Equations for Superconductivity}{10}
+\contentsline {section}{\numberline {2.5}Large $\lambda $ Limit}{12}
+\contentsline {section}{\numberline {2.6}Phenomenological Vortex Interactions}{13}
+\contentsline {subsection}{\numberline {2.6.1}Vortex-Vortex Interactions}{13}
+\contentsline {subsection}{\numberline {2.6.2}Vortex-Defect Interactions}{14}
+\contentsline {subsection}{\numberline {2.6.3}Vortex-Wall Interactions}{15}
+\contentsline {section}{\numberline {2.7}Relevant Vortex studies}{15}
+\contentsline {section}{\numberline {2.8}Vortex Matching and $\delta T_c$ Pinning}{17}
+\contentsline {section}{\numberline {2.9}Vortex Jamming and Geometric Pinning}{19}
+\contentsline {section}{\numberline {2.10}GPU enabled time dependent Ginzburg Landau solver}{21}
+\contentsline {subsection}{\numberline {2.10.1}stable GLGPU system}{21}
+\contentsline {subsection}{\numberline {2.10.2}Boundary conditions}{22}
+\contentsline {section}{\numberline {2.11}Results}{22}
+\contentsline {subsection}{\numberline {2.11.1}Grids}{23}
+\contentsline {section}{\numberline {2.12}Funnels}{26}
+\contentsline {subsection}{\numberline {2.12.1}Description}{26}
+\contentsline {subsection}{\numberline {2.12.2}Analysis}{27}
+\contentsline {chapter}{\numberline {3}Variable Range Hopping}{38}
+\contentsline {section}{\numberline {3.1}Overview}{38}
+\contentsline {section}{\numberline {3.2}Monte Carlo methods}{38}
+\contentsline {subsection}{\numberline {3.2.1}Estimating $\pi $}{39}
+\contentsline {subsection}{\numberline {3.2.2}Metropolis method}{39}
+\contentsline {subsection}{\numberline {3.2.3}Ising problem}{40}
+\contentsline {subsection}{\numberline {3.2.4}Conditions}{41}
+\contentsline {section}{\numberline {3.3}Coulomb Glass}{42}
+\contentsline {subsection}{\numberline {3.3.1}Density of States in a Coulomb Glass}{44}
+\contentsline {subsection}{\numberline {3.3.2}Comparing Mott VRH against Effros-Shklovskii VRH}{45}
+\contentsline {section}{\numberline {3.4}Artificial Nanosolids}{47}
+\contentsline {subsection}{\numberline {3.4.1}Inelastic vs. Elastic tunneling}{48}
+\contentsline {subsection}{\numberline {3.4.2}Coulomb Glass vs Artificial Nanosolids}{48}
+\contentsline {section}{\numberline {3.5}Thermoelectrics}{50}
+\contentsline {section}{\numberline {3.6}{\sc dias}}{51}
+\contentsline {subsection}{\numberline {3.6.1}Algorithm Parameters and Choices}{51}
+\contentsline {subsection}{\numberline {3.6.2}Algorithmic Strategy}{52}
+\contentsline {subsection}{\numberline {3.6.3}GPU Algorithms}{53}
+\contentsline {subsection}{\numberline {3.6.4}Jump Probability}{57}
+\contentsline {subsection}{\numberline {3.6.5}Optimizations}{59}
+\contentsline {subsection}{\numberline {3.6.6}The Lattice}{60}
+\contentsline {subsection}{\numberline {3.6.7}Continuous Time}{60}
+\contentsline {subsection}{\numberline {3.6.8}Dielectric Constant}{61}
+\contentsline {subsection}{\numberline {3.6.9}Distance-substrate correlation}{61}
+\contentsline {subsection}{\numberline {3.6.10}Temperature}{62}
+\contentsline {subsection}{\numberline {3.6.11}Density of States in {\sc dias}}{64}
+\contentsline {subsection}{\numberline {3.6.12}Thoon Cluster and Computational Resources}{65}
+\contentsline {section}{\numberline {3.7}Results}{66}
+\contentsline {subsection}{\numberline {3.7.1}Algorithmic Benchmarking}{66}
+\contentsline {subsection}{\numberline {3.7.2}Algorithmic Benchmarking}{67}
+\contentsline {subsection}{\numberline {3.7.3}Fitting and Prediction}{68}
+\contentsline {chapter}{References}{71}
+\contentsline {chapter}{Appendices}{77}
 \contentsfinish 
